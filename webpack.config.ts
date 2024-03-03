@@ -1,7 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
-import type { Configuration as WebpackDevServerConfig } from 'webpack-dev-server';
-import PugPlugin from 'pug-plugin';
+import buildLoaders from './config/build/buildLoaders';
+import buildPlugins from './config/build/buildPlugins';
+import buildDevServer from './config/build/buildDevServer';
 
 const buildConfig = () => {
   const config: webpack.Configuration = {
@@ -17,35 +18,12 @@ const buildConfig = () => {
     },
 
     module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          use: 'ts-loader',
-        },
-        {
-          test: /\.pug$/,
-          loader: PugPlugin.loader,
-        },
-        {
-          test: /\.(css|sass|scss)$/,
-          use: ['css-loader', 'sass-loader'],
-        },
-      ],
+      rules: buildLoaders(),
     },
 
-    plugins: [
-      new PugPlugin({
-        pretty: true,
-        js: { filename: '[name].[contenthash:8].js' },
-        css: { filename: '[name].[contenthash:8].css' },
-      }),
-    ],
+    plugins: buildPlugins(),
 
-    devServer: {
-      port: 8000,
-      open: true,
-      hot: true,
-    } as WebpackDevServerConfig,
+    devServer: buildDevServer(),
 
     resolve: {
       extensions: ['.ts', '.js'],
