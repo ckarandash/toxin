@@ -26,6 +26,10 @@ const buildConfig = () => {
           test: /\.pug$/,
           loader: PugPlugin.loader,
         },
+        {
+          test: /\.(css|sass|scss)$/,
+          use: ['css-loader', 'sass-loader'],
+        },
       ],
     },
 
@@ -33,6 +37,7 @@ const buildConfig = () => {
       new PugPlugin({
         pretty: true,
         js: { filename: '[name].[contenthash:8].js' },
+        css: { filename: '[name].[contenthash:8].css' },
       }),
     ],
 
