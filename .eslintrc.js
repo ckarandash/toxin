@@ -26,4 +26,14 @@ module.exports = {
   rules: {
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   },
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@components', './src/components'],
+          ['@sass', './src/sass'],
+        ]
+      }
+    }
+  },
 };
