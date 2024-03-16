@@ -5,10 +5,10 @@
   src:
     local('Montserrat'),
     local('Montserrat-Regular'),
-    url('../assets/fonts/Montserrat/Montserrat-Regular.woff2'),
-    url('../assets/fonts/Montserrat/Montserrat-Regular.woff'),
-    url('../assets/fonts/Montserrat/Montserrat-Regular.svg'),
-    url('../assets/fonts/Montserrat/Montserrat-Regular.ttf');
+    url('../assets/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'),
+    url('../assets/fonts/Montserrat/Montserrat-Regular.woff') format('woff'),
+    url('../assets/fonts/Montserrat/Montserrat-Regular.svg') format('svg'),
+    url('../assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
 
 }
 
@@ -19,10 +19,10 @@
   src:
     local('Montserrat'),
     local('Montserrat-Bold'),
-    url('../assets/fonts/Montserrat/Montserrat-Bold.woff2'),
-    url('../assets/fonts/Montserrat/Montserrat-Bold.woff'),
-    url('../assets/fonts/Montserrat/Montserrat-Bold.svg'),
-    url('../assets/fonts/Montserrat/Montserrat-Bold.ttf');
+    url('../assets/fonts/Montserrat/Montserrat-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Montserrat/Montserrat-Bold.woff') format('woff'),
+    url('../assets/fonts/Montserrat/Montserrat-Bold.svg') format('svg'),
+    url('../assets/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
 }
 
 @font-face {
