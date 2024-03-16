@@ -1,2 +1,10 @@
-mixin text-field({ placeholder="" })
-  input.text-field(type="text" placeholder=placeholder)
+mixin text-field({ placeholder="", isMasked=false })
+  - const baseClass = 'text-field'
+  - const classes = [baseClass]
+
+  if isMasked
+    - classes.push(`${baseClass}_masked`)
+
+  - const fieldPlaceholder = isMasked ? 'ДД.ММ.ГГГГ' : placeholder
+
+  input(class=classes.join(' ') type="text" placeholder=fieldPlaceholder)
