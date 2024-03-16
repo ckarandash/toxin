@@ -5,10 +5,10 @@
   src:
     local('Montserrat'),
     local('Montserrat-Regular'),
-    url('../assets/fonts/Montserrat-Regular.woff2'),
-    url('../assets/fonts/Montserrat-Regular.woff'),
-    url('../assets/fonts/Montserrat-Regular.svg'),
-    url('../assets/fonts/Montserrat-Regular.ttf');
+    url('../assets/fonts/Montserrat/Montserrat-Regular.woff2'),
+    url('../assets/fonts/Montserrat/Montserrat-Regular.woff'),
+    url('../assets/fonts/Montserrat/Montserrat-Regular.svg'),
+    url('../assets/fonts/Montserrat/Montserrat-Regular.ttf');
 
 }
 
@@ -19,8 +19,22 @@
   src:
     local('Montserrat'),
     local('Montserrat-Bold'),
-    url('../assets/fonts/Montserrat-Bold.woff2'),
-    url('../assets/fonts/Montserrat-Bold.woff'),
-    url('../assets/fonts/Montserrat-Bold.svg'),
-    url('../assets/fonts/Montserrat-Bold.ttf');
+    url('../assets/fonts/Montserrat/Montserrat-Bold.woff2'),
+    url('../assets/fonts/Montserrat/Montserrat-Bold.woff'),
+    url('../assets/fonts/Montserrat/Montserrat-Bold.svg'),
+    url('../assets/fonts/Montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-display: swap;
+  font-weight: 400;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons'),
+    local('MaterialIcons-Regular'),
+    url('../assets/fonts/MaterialIcons/MaterialIcons-Regular.woff2') format('woff2'),
+    url('../assets/fonts/MaterialIcons/MaterialIcons-Regular.woff') format('woff'),
+    url('../assets/fonts/MaterialIcons/MaterialIcons-Regular.svg#MaterialIcons-Regular') format('svg'),
+    url('../assets/fonts/MaterialIcons/MaterialIcons-Regular.ttf') format('truetype');
 }
