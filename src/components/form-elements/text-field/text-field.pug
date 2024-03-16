@@ -11,7 +11,7 @@ mixin text-field({ placeholder="", isMasked=false, hasArrow=false })
   - const fieldPlaceholder = isMasked ? 'ДД.ММ.ГГГГ' : placeholder
 
   .text-field
-    input(class=classes.join(' ') type="text" placeholder=fieldPlaceholder)
+    input(class=classes type="text" placeholder=fieldPlaceholder)
 
     if hasArrow
       .text-field__arrow arrow_forward
