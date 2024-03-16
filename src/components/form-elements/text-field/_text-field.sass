@@ -6,31 +6,42 @@
   display: flex
   // todo: test value. Remove later
   width: 267px
+  border: variables.$staticBorder
+  border-radius: variables.$mainBorderRadius
+  background-color: #ffffff
+  transition: all 0.2s ease
+
+  &:focus-within
+    color: variables.$dark_75
+    border: variables.$focusBorder
 
   &__input
     width: 100%
     padding: 12px 15px 12.72px 15px
-    border: variables.$staticBorder
-    border-radius: variables.$mainBorderRadius
+    margin-right: 8px
     font-family: variables.$mainFont
     font-size: functions.pxToRem(14px)
     line-height: functions.pxToRem(18px)
     letter-spacing: functions.pxToRem(-0.18px)
+    border: none
+    background-color: transparent
     color: variables.$dark_25
+    text-overflow: ellipsis
     transition: all 0.2s ease
+
+    &_with_arrow
+      padding-right: 0
 
     &::placeholder
       color: variables.$dark_25
 
     &:focus
-      color: variables.$dark_75
       outline: none
-      border: variables.$focusBorder
+      color: variables.$dark_75
 
   &__arrow
     align-self: center
-    position: absolute
-    right: 10px
+    margin-right: 10px
     background-image: variables.$primaryGradient
     background-clip: text
     font-family: 'Material Icons'
