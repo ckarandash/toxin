@@ -27,6 +27,10 @@ const buildConfig = () => {
 
     resolve: {
       extensions: ['.ts', '.js'],
+      alias: {
+        '@sass': path.resolve('src', 'sass'),
+        '@components': path.resolve('src', 'components'),
+      },
     },
   };
 
