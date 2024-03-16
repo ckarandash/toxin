@@ -1,0 +1,21 @@
+@use '../../../sass/_variables'
+@use '../../../sass/_functions'
+
+.text-field
+  padding: 12px 15px 12.72px 15px
+  border: variables.$staticBorder
+  border-radius: variables.$mainBorderRadius
+  font-family: variables.$mainFont
+  font-size: functions.pxToRem(14px)
+  line-height: functions.pxToRem(18px)
+  letter-spacing: functions.pxToRem(-0.18px)
+  color: variables.$dark_25
+  transition: all 0.2s ease
+
+  &::placeholder
+    color: variables.$dark_25
+
+  &:focus
+    color: variables.$dark_75
+    outline: none
+    border: variables.$focusBorder

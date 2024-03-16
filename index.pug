@@ -1,3 +1,5 @@
+include ./src/components/form-elements/text-field/text-field.pug
+
 doctype html
 html(lang="en")
   head
@@ -7,5 +9,4 @@ html(lang="en")
     script(src=require('./index.js'))
     link(href=require('./main.sass') rel='stylesheet')
   body 
-    div hello world
-    a(href="./other-page.html") link to other page
+    +text-field({placeholder: "Email"})
