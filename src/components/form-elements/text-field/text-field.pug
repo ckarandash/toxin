@@ -1,10 +1,17 @@
-mixin text-field({ placeholder="", isMasked=false })
-  - const baseClass = 'text-field'
-  - const classes = [baseClass]
+mixin text-field({ placeholder="", isMasked=false, hasArrow=false })
+  - const inputClass = 'text-field__input'
+  - const classes = [inputClass]
 
   if isMasked
-    - classes.push(`${baseClass}_masked`)
+    - classes.push(`${inputClass}_masked`)
+
+  if hasArrow
+    - classes.push(`${inputClass}_with_arrow`)
 
   - const fieldPlaceholder = isMasked ? 'ДД.ММ.ГГГГ' : placeholder
 
-  input(class=classes.join(' ') type="text" placeholder=fieldPlaceholder)
+  .text-field
+    input(class=classes.join(' ') type="text" placeholder=fieldPlaceholder)
+
+    if hasArrow
+      .text-field__arrow arrow_forward

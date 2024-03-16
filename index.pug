@@ -6,8 +6,9 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
-    script(src=require('./index.js'))
+    script(src='./index.js' defer)
     link(href=require('./main.sass') rel='stylesheet')
   body 
+    +text-field({hasArrow: true})
     +text-field({placeholder: "Email"})
     +text-field({isMasked: true})
