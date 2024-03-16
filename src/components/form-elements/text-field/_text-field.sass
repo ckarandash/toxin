@@ -11,8 +11,7 @@
   background-color: #ffffff
   transition: all 0.2s ease
 
-  &:focus-within
-    color: variables.$dark_75
+  &:focus-within, &:hover
     border: variables.$focusBorder
 
   &__input
@@ -35,7 +34,7 @@
     &::placeholder
       color: variables.$dark_25
 
-    &:focus
+    &:focus, &:hover
       outline: none
       color: variables.$dark_75
 
