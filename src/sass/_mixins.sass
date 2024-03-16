@@ -1,0 +1,18 @@
+@use '../sass/_variables'
+@use '../sass/_functions'
+
+@mixin topHeadingText()
+  font: 700 functions.pxToRem(24px) / functions.pxToRem(29.3px) variables.$headingFont
+  color: variables.$headingColor
+
+@mixin subheadingText()
+  font: 700 functions.pxToRem(19px) / functions.pxToRem(23.2px) variables.$headingFont
+  color: variables.$headingColor
+
+@mixin labelText()
+  font: 700 functions.pxToRem(12px) / functions.pxToRem(14.6px) variables.$labelFont
+  color: variables.$labelColor
+
+@mixin bodyText()
+  font: 400 functions.pxToRem(14px) / functions.pxToRem(24px) variables.$mainFont
+  color: variables.$bodyTextColor
