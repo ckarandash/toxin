@@ -1,0 +1,13 @@
+mixin dropdown({ items=[], question="", withClear=false, withApply=false })
+  .dropdown
+    .dropdown__header
+      .dropdown__label #{question}
+    .dropdown__body
+      ul.dropdown__items
+        each item in items
+          li.dropdown__item(data-name=item.name)
+            span.dropdown__item-label= item.label
+            .dropdown__item-controls
+              button.dropdown__control-btn.dropdown__item-minus -
+              .dropdown__item-count #{item.initialCount}
+              button.dropdown__control-btn.dropdown__item-plus +

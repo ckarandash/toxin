@@ -1,4 +1,5 @@
-include ./src/components/form-elements/text-field/text-field.pug
+include @components/form-elements/text-field/text-field.pug
+include @components/form-elements/dropdown/dropdown.pug
 
 doctype html
 html(lang="en")
@@ -9,6 +10,15 @@ html(lang="en")
     script(src='./index.js' defer)
     link(href=require('./main.sass') rel='stylesheet')
   body 
-    +text-field({hasArrow: true})
-    +text-field({placeholder: "Email"})
-    +text-field({isMasked: true})
+    //- +text-field({hasArrow: true})
+    //- +text-field({placeholder: "Email"})
+    //- +text-field({isMasked: true})
+
+    +dropdown({
+      question: 'Сколько гостей',
+      items: [
+        { label: 'спальни', initialCount: 2, name: 'bedrooms' },
+        { label: 'кровати', initialCount: 2, name: 'beds' },
+        { label: 'ванные комнаты', initialCount: 0, name: 'bathrooms' },
+      ],
+    })
