@@ -45,6 +45,31 @@ class DropdownView {
       this.dropdownElement.classList.remove('dropdown_opened');
     }
   }
+
+  parseState() {
+    return {
+      isOpened: this.parseDropdownOpened(),
+      items: this.parseItemsNameCountMap(),
+    };
+  }
+
+  parseItemsNameCountMap() {
+    const dropdownItemsElements = this.dropdownElement
+      .querySelectorAll('.dropdown__item');
+
+    const map = Array.from(dropdownItemsElements).reduce((nameCountMap, itemElement) => {
+      const itemCount = +itemElement.querySelector('.dropdown__item-count').textContent;
+      const itemName = itemElement.dataset.name;
+
+      return { ...nameCountMap, [itemName]: itemCount };
+    }, {});
+
+    return map;
+  }
+
+  parseDropdownOpened() {
+    return this.dropdownElement.classList.contains('dropdown_opened');
+  }
 }
 
 export default DropdownView;
