@@ -32,7 +32,11 @@ class DropdownView {
   }
 
   render(options) {
-    if (options.isOpened) {
+    this.renderOpening(options.isOpened);
+  }
+
+  renderOpening(isOpened) {
+    if (isOpened) {
       this.dropdownElement.classList.add('dropdown_opened');
     } else {
       this.dropdownElement.classList.remove('dropdown_opened');
