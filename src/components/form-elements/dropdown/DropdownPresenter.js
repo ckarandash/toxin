@@ -1,3 +1,5 @@
+import throwUnreachable from '../../../js/throwUnreachable';
+
 class DropdownPresenter {
   constructor(model, view, onApply) {
     this.dropdownModel = model;
@@ -10,29 +12,31 @@ class DropdownPresenter {
       modelEvents.MODEL_UPDATED,
     );
 
-    this.dropdownView.onHeaderClick = () => {
-      this.dropdownModel.toggleOpened();
-    };
-
-    this.dropdownView.onItemButtonClick = ({ itemName, buttonType }) => {
-      switch (buttonType) {
-        case 'minus':
-          this.dropdownModel.changeItemCount(itemName, 'reduce');
-          break;
-
-        case 'plus':
-          this.dropdownModel.changeItemCount(itemName, 'increase');
-          break;
-
-        default:
-          throw new Error('Mustn\'t get here');
-      }
-    };
-
+    this.dropdownView.onHeaderClick = this.handleViewHeaderClick.bind(this);
+    this.dropdownView.onItemButtonClick = this.handleViewItemButtonClick.bind(this);
     this.dropdownView.onClearButtonClick = this.handleViewClearButtonClick.bind(this);
     this.dropdownView.onApplyButtonClick = this.handleViewApplyButtonClick.bind(this);
 
-    this.initialize();
+    this.renderView();
+  }
+
+  handleViewHeaderClick() {
+    this.dropdownModel.toggleOpened();
+  }
+
+  handleViewItemButtonClick({ itemName, buttonType }) {
+    switch (buttonType) {
+      case 'minus':
+        this.dropdownModel.changeItemCount(itemName, 'reduce');
+        break;
+
+      case 'plus':
+        this.dropdownModel.changeItemCount(itemName, 'increase');
+        break;
+
+      default:
+        throwUnreachable();
+    }
   }
 
   handleViewClearButtonClick() {
@@ -46,10 +50,6 @@ class DropdownPresenter {
   }
 
   onModelUpdated() {
-    this.renderView();
-  }
-
-  initialize() {
     this.renderView();
   }
 
