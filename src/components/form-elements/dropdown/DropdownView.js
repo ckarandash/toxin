@@ -10,6 +10,7 @@ class DropdownView {
 
     this.dropdownItems = this.buildDropdownItems();
     this.onHeaderClick = null;
+    this.onItemButtonClick = null;
   }
 
   buildDropdownItems() {
@@ -22,6 +23,15 @@ class DropdownView {
       const plusButton = itemElement.querySelector('.dropdown__item-plus');
 
       const itemName = itemElement.dataset.name;
+
+      minusButton.addEventListener('click', () => this.onItemButtonClick({
+        itemName, buttonType: 'minus',
+      }));
+
+      plusButton.addEventListener('click', () => this.onItemButtonClick({
+        itemName, buttonType: 'plus',
+      }));
+
       const newItem = {
         name: itemName,
         elements: {
@@ -39,6 +49,7 @@ class DropdownView {
 
   render(options) {
     this.renderOpening(options.isOpened);
+    this.renderCounts(options.items);
   }
 
   renderOpening(isOpened) {
@@ -47,6 +58,13 @@ class DropdownView {
     } else {
       this.dropdownElement.classList.remove('dropdown_opened');
     }
+  }
+
+  renderCounts(items) {
+    items.forEach((i) => {
+      const relatedElement = this.dropdownItems.find(({ name }) => name === i.name);
+      relatedElement.elements.countElement.textContent = i.count;
+    });
   }
 
   parseState() {
