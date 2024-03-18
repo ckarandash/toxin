@@ -1,7 +1,8 @@
 class DropdownPresenter {
-  constructor(model, view) {
+  constructor(model, view, onApply) {
     this.dropdownModel = model;
     this.dropdownView = view;
+    this.onApply = onApply;
 
     const modelEvents = this.dropdownModel.getEvents();
     this.dropdownModel.addSubscriber(
@@ -28,7 +29,20 @@ class DropdownPresenter {
       }
     };
 
+    this.dropdownView.onClearButtonClick = this.handleViewClearButtonClick.bind(this);
+    this.dropdownView.onApplyButtonClick = this.handleViewApplyButtonClick.bind(this);
+
     this.initialize();
+  }
+
+  handleViewClearButtonClick() {
+    this.dropdownModel.setMinimumCounts();
+  }
+
+  handleViewApplyButtonClick() {
+    const modelItems = this.dropdownModel.getState().items;
+    const applyItems = modelItems.map(({ name, count }) => ({ name, count }));
+    this.onApply(applyItems);
   }
 
   onModelUpdated() {

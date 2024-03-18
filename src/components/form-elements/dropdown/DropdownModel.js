@@ -8,7 +8,8 @@ class DropdownModel extends Observer {
 
     this.state = {
       items,
-      isOpened,
+      isOpened: true,
+      // isOpened,
     };
   }
 
@@ -51,6 +52,13 @@ class DropdownModel extends Observer {
     }
 
     this.state.items[itemIdx] = newItem;
+    this.notify(this.events.MODEL_UPDATED);
+  }
+
+  setMinimumCounts() {
+    this.state.items = this.state.items.map((i) => (
+      { ...i, count: DropdownModel.MIN_COUNT, isCountAtMinimum: true }
+    ));
     this.notify(this.events.MODEL_UPDATED);
   }
 }

@@ -1,4 +1,6 @@
 mixin dropdown({ items=[], question="", withClear=false, withApply=false })
+  - const withButtons = withClear || withApply
+
   .dropdown
     .dropdown__header
       .dropdown__label #{question}
@@ -11,3 +13,15 @@ mixin dropdown({ items=[], question="", withClear=false, withApply=false })
               button.dropdown__control-btn.dropdown__item-minus -
               .dropdown__item-count #{item.initialCount}
               button.dropdown__control-btn.dropdown__item-plus +
+      if withButtons
+        .dropdown__buttons
+          if withClear
+            button.dropdown__btn.dropdown__clear-btn очистить
+
+          if withApply
+            - const applyBtnClasses = ['dropdown__btn', 'dropdown__apply-btn'];
+
+            if !withClear
+              - applyBtnClasses.push('dropdown__apply-btn_pushed_right');
+
+            button(class=applyBtnClasses) применить

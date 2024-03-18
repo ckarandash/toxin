@@ -9,8 +9,12 @@ class DropdownView {
     });
 
     this.dropdownItems = this.buildDropdownItems();
+    this.handleClearApplyButtons();
+
     this.onHeaderClick = null;
     this.onItemButtonClick = null;
+    this.onClearButtonClick = null;
+    this.onApplyButtonClick = null;
   }
 
   buildDropdownItems() {
@@ -45,6 +49,19 @@ class DropdownView {
     });
 
     return dropdownItems;
+  }
+
+  handleClearApplyButtons() {
+    const clearBtn = this.dropdownElement.querySelector('.dropdown__clear-btn');
+    const applyBtn = this.dropdownElement.querySelector('.dropdown__apply-btn');
+
+    clearBtn.addEventListener('click', () => {
+      this.onClearButtonClick();
+    });
+
+    applyBtn.addEventListener('click', () => {
+      this.onApplyButtonClick();
+    });
   }
 
   render(options) {

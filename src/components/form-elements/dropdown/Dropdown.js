@@ -3,13 +3,13 @@ import DropdownPresenter from './DropdownPresenter';
 import DropdownView from './DropdownView';
 
 class Dropdown {
-  constructor(dropdownElement) {
+  constructor(dropdownElement, onApply) {
     this.view = new DropdownView(dropdownElement);
 
     const modelInitialState = this.buildModelInitialState();
     this.model = new DropdownModel(modelInitialState);
 
-    this.presenter = new DropdownPresenter(this.model, this.view);
+    this.presenter = new DropdownPresenter(this.model, this.view, onApply);
   }
 
   buildModelInitialState() {
