@@ -16,17 +16,20 @@ class DropdownView {
     const dropdownItemsElements = this.dropdownElement
       .querySelectorAll('.dropdown__item');
 
-    const dropdownItems = Array.from(dropdownItemsElements).map((item) => {
-      const itemCountElement = item.querySelector('.dropdown__item-count');
-      const minusButton = item.querySelector('.dropdown__item-minus');
-      const plusButton = item.querySelector('.dropdown__item-plus');
+    const dropdownItems = Array.from(dropdownItemsElements).reduce((itemsMap, itemElement) => {
+      const itemCountElement = itemElement.querySelector('.dropdown__item-count');
+      const minusButton = itemElement.querySelector('.dropdown__item-minus');
+      const plusButton = itemElement.querySelector('.dropdown__item-plus');
 
-      return {
+      const itemName = itemElement.dataset.name;
+      const newItem = {
         minusButton,
         plusButton,
         countElement: itemCountElement,
       };
-    });
+
+      return { ...itemsMap, [itemName]: newItem };
+    }, {});
 
     return dropdownItems;
   }
