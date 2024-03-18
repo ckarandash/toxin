@@ -5,6 +5,10 @@
   // todo: test value. Remove
   width: 266px
 
+  &_opened
+    .dropdown__body
+      display: block
+
   &__header
     display: flex
     justify-content: space-between
@@ -26,6 +30,7 @@
       font-size: 24px
 
   &__body
+    display: none
     border: variables.$staticBorder
     border-radius: 4px
     border-top: none
