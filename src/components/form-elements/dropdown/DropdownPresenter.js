@@ -27,12 +27,20 @@ class DropdownPresenter {
           throw new Error('Mustn\'t get here');
       }
     };
+
+    this.initialize();
   }
 
   onModelUpdated() {
-    this.dropdownView.render(
-      this.dropdownModel.getState(),
-    );
+    this.renderView();
+  }
+
+  initialize() {
+    this.renderView();
+  }
+
+  renderView() {
+    this.dropdownView.render(this.dropdownModel.getState());
   }
 }
 
