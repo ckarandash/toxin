@@ -1,10 +1,9 @@
-import Observer from './Observer';
+import Observer from '../../../js/Observer';
+import throwUnreachable from '../../../js/throwUnreachable';
 
 class DropdownModel extends Observer {
   constructor({ items = [], isOpened = false } = {}) {
-    super({
-      MODEL_UPDATED: 'MODEL_UPDATED',
-    });
+    super(DropdownModel.EVENTS);
 
     this.state = {
       items,
@@ -48,7 +47,7 @@ class DropdownModel extends Observer {
         break;
 
       default:
-        throw new Error('Mustn\'t get here');
+        throwUnreachable();
     }
 
     this.state.items[itemIdx] = newItem;
@@ -64,5 +63,8 @@ class DropdownModel extends Observer {
 }
 
 DropdownModel.MIN_COUNT = 0;
+DropdownModel.EVENTS = {
+  MODEL_UPDATED: 'MODEL_UPDATED',
+};
 
 export default DropdownModel;
