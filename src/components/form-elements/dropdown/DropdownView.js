@@ -50,6 +50,7 @@ class DropdownView {
   render(options) {
     this.renderOpening(options.isOpened);
     this.renderCounts(options.items);
+    this.renderButtons(options.items);
   }
 
   renderOpening(isOpened) {
@@ -64,6 +65,20 @@ class DropdownView {
     items.forEach((i) => {
       const relatedElement = this.dropdownItems.find(({ name }) => name === i.name);
       relatedElement.elements.countElement.textContent = i.count;
+    });
+  }
+
+  renderButtons(items) {
+    items.forEach((i) => {
+      const relatedElement = this.dropdownItems.find(({ name }) => name === i.name);
+      const { minusButton } = relatedElement.elements;
+
+      const buttonDisabledClass = 'dropdown__control-btn_disabled';
+      if (i.isCountAtMinimum) {
+        minusButton.classList.add(buttonDisabledClass);
+      } else {
+        minusButton.classList.remove(buttonDisabledClass);
+      }
     });
   }
 

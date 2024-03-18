@@ -27,11 +27,23 @@ class DropdownModel extends Observer {
 
     switch (changeType) {
       case 'reduce':
-        newItem.count -= 1;
+        if (newItem.count > DropdownModel.MIN_COUNT) {
+          newItem.count -= 1;
+
+          if (newItem.count === DropdownModel.MIN_COUNT) {
+            newItem.isCountAtMinimum = true;
+          }
+        }
+
         break;
 
       case 'increase':
         newItem.count += 1;
+
+        if (newItem.count > DropdownModel.MIN_COUNT) {
+          newItem.isCountAtMinimum = false;
+        }
+
         break;
 
       default:
@@ -42,5 +54,7 @@ class DropdownModel extends Observer {
     this.notify(this.events.MODEL_UPDATED);
   }
 }
+
+DropdownModel.MIN_COUNT = 0;
 
 export default DropdownModel;

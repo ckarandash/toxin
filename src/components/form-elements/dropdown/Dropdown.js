@@ -6,13 +6,23 @@ class Dropdown {
   constructor(dropdownElement) {
     this.view = new DropdownView(dropdownElement);
 
-    const viewInitialState = this.view.parseState();
-    this.model = new DropdownModel({
-      items: viewInitialState.items,
-      isOpened: viewInitialState.isOpened,
-    });
+    const modelInitialState = this.buildModelInitialState();
+    this.model = new DropdownModel(modelInitialState);
 
     this.presenter = new DropdownPresenter(this.model, this.view);
+  }
+
+  buildModelInitialState() {
+    const viewInitialState = this.view.parseState();
+    const modelItems = viewInitialState.items.map((item) => ({
+      ...item,
+      isCountAtMinimum: item.count === DropdownModel.MIN_COUNT,
+    }));
+
+    return {
+      items: modelItems,
+      isOpened: viewInitialState.isOpened,
+    };
   }
 }
 
