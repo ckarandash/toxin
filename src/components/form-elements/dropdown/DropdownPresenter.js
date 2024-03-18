@@ -54,7 +54,7 @@ class DropdownPresenter {
   }
 
   renderView() {
-    this.dropdownView.render(this.dropdownModel.getState());
+    this.dropdownView.getRenderer().render(this.dropdownModel.getState());
   }
 }
 

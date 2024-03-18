@@ -13,7 +13,7 @@ class Dropdown {
   }
 
   buildModelInitialState() {
-    const viewInitialState = this.view.parseState();
+    const viewInitialState = this.view.getParser().parseState();
     const modelItems = viewInitialState.items.map((item) => ({
       ...item,
       isCountAtMinimum: item.count === DropdownModel.MIN_COUNT,
