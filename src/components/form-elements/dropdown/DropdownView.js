@@ -16,20 +16,23 @@ class DropdownView {
     const dropdownItemsElements = this.dropdownElement
       .querySelectorAll('.dropdown__item');
 
-    const dropdownItems = Array.from(dropdownItemsElements).reduce((itemsMap, itemElement) => {
+    const dropdownItems = Array.from(dropdownItemsElements).map((itemElement) => {
       const itemCountElement = itemElement.querySelector('.dropdown__item-count');
       const minusButton = itemElement.querySelector('.dropdown__item-minus');
       const plusButton = itemElement.querySelector('.dropdown__item-plus');
 
       const itemName = itemElement.dataset.name;
       const newItem = {
-        minusButton,
-        plusButton,
-        countElement: itemCountElement,
+        name: itemName,
+        elements: {
+          minusButton,
+          plusButton,
+          countElement: itemCountElement,
+        },
       };
 
-      return { ...itemsMap, [itemName]: newItem };
-    }, {});
+      return newItem;
+    });
 
     return dropdownItems;
   }
@@ -49,20 +52,20 @@ class DropdownView {
   parseState() {
     return {
       isOpened: this.parseDropdownOpened(),
-      items: this.parseItemsNameCountMap(),
+      items: this.parseItemsNameCountArray(),
     };
   }
 
-  parseItemsNameCountMap() {
+  parseItemsNameCountArray() {
     const dropdownItemsElements = this.dropdownElement
       .querySelectorAll('.dropdown__item');
 
-    const map = Array.from(dropdownItemsElements).reduce((nameCountMap, itemElement) => {
+    const map = Array.from(dropdownItemsElements).map((itemElement) => {
       const itemCount = +itemElement.querySelector('.dropdown__item-count').textContent;
       const itemName = itemElement.dataset.name;
 
-      return { ...nameCountMap, [itemName]: itemCount };
-    }, {});
+      return { name: itemName, count: itemCount };
+    });
 
     return map;
   }
