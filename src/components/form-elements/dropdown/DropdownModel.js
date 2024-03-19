@@ -63,7 +63,7 @@ class DropdownModel extends Observer {
     this.notify(this.events.MODEL_UPDATED);
   }
 
-  buildLabel() {
+  buildFullLabel() {
     const areAllItemsAtMinimum = !this.state.items.find(
       ({ count }) => count !== DropdownModel.MIN_COUNT,
     );
@@ -80,6 +80,16 @@ class DropdownModel extends Observer {
     return label;
   }
 
+  buildLabel() {
+    const fullLabel = this.buildFullLabel();
+    const cutLabel = `${fullLabel.slice(0, DropdownModel.LABEL_MAX_LENGTH)}...`;
+
+    const isLabelTooLong = fullLabel.length >= DropdownModel.LABEL_MAX_LENGTH;
+    const potentiallyCutLabel = isLabelTooLong ? cutLabel : fullLabel;
+
+    return potentiallyCutLabel;
+  }
+
   updateLabel() {
     this.state.label = this.buildLabel();
     this.notify(DropdownModel.EVENTS.MODEL_UPDATED);
@@ -90,5 +100,6 @@ DropdownModel.MIN_COUNT = 0;
 DropdownModel.EVENTS = {
   MODEL_UPDATED: 'MODEL_UPDATED',
 };
+DropdownModel.LABEL_MAX_LENGTH = 20;
 
 export default DropdownModel;
