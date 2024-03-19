@@ -1,14 +1,16 @@
 import Observer from '../../../js/Observer';
 import throwUnreachable from '../../../js/throwUnreachable';
+import getCountOfWordString from './utils/getCountOfWordString';
 
 class DropdownModel extends Observer {
-  constructor({ items = [], isOpened = false } = {}) {
+  constructor({ items = [], isOpened = false, label } = {}) {
     super(DropdownModel.EVENTS);
 
+    this.defaultLabel = label;
     this.state = {
       items,
       isOpened: true,
-      // isOpened,
+      label,
     };
   }
 
@@ -59,6 +61,28 @@ class DropdownModel extends Observer {
       { ...i, count: DropdownModel.MIN_COUNT, isCountAtMinimum: true }
     ));
     this.notify(this.events.MODEL_UPDATED);
+  }
+
+  buildLabel() {
+    const areAllItemsAtMinimum = !this.state.items.find(
+      ({ count }) => count !== DropdownModel.MIN_COUNT,
+    );
+
+    if (areAllItemsAtMinimum) {
+      return this.defaultLabel;
+    }
+
+    const wordWithCountStrings = this.state.items
+      .filter(({ count }) => count !== 0)
+      .map((item) => getCountOfWordString(item.count, item.word));
+
+    const label = wordWithCountStrings.join(', ');
+    return label;
+  }
+
+  updateLabel() {
+    this.state.label = this.buildLabel();
+    this.notify(DropdownModel.EVENTS.MODEL_UPDATED);
   }
 }
 

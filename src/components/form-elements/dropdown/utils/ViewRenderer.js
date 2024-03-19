@@ -8,6 +8,7 @@ class ViewRenderer {
     this.renderOpening(options.isOpened);
     this.renderCounts(options.items);
     this.renderButtons(options.items);
+    this.renderLabel(options.label);
   }
 
   renderOpening(isOpened) {
@@ -37,6 +38,11 @@ class ViewRenderer {
         minusButton.classList.remove(buttonDisabledClass);
       }
     });
+  }
+
+  renderLabel(label) {
+    const labelElement = this.dropdownElement.querySelector('.dropdown__label');
+    labelElement.textContent = label;
   }
 }
 
