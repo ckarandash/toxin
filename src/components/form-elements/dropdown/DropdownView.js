@@ -25,6 +25,14 @@ class DropdownView {
     this._onApplyButtonClick = handlers.applyButtonClick;
   }
 
+  getParser() {
+    return this._parser;
+  }
+
+  getRenderer() {
+    return this._renderer;
+  }
+
   _buildDropdownItems() {
     const dropdownItemsElements = this._dropdownElement
       .querySelectorAll('.js-dropdown__item');
@@ -79,14 +87,6 @@ class DropdownView {
     applyBtn.addEventListener('click', () => {
       this._onApplyButtonClick();
     });
-  }
-
-  getParser() {
-    return this._parser;
-  }
-
-  getRenderer() {
-    return this._renderer;
   }
 }
 

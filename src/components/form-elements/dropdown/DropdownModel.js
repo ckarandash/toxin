@@ -63,6 +63,11 @@ class DropdownModel extends Observer {
     this.notify(this._events.MODEL_UPDATED);
   }
 
+  updateLabel() {
+    this._state.label = this._buildLabel();
+    this.notify(DropdownModel.EVENTS.MODEL_UPDATED);
+  }
+
   _buildFullLabel() {
     const areAllItemsAtMinimum = !this._state.items.find(
       ({ count }) => count !== DropdownModel.MIN_COUNT,
@@ -88,11 +93,6 @@ class DropdownModel extends Observer {
     const potentiallyCutLabel = isLabelTooLong ? cutLabel : fullLabel;
 
     return potentiallyCutLabel;
-  }
-
-  updateLabel() {
-    this._state.label = this._buildLabel();
-    this.notify(DropdownModel.EVENTS.MODEL_UPDATED);
   }
 }
 
