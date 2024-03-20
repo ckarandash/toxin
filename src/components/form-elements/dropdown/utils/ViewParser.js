@@ -1,18 +1,18 @@
 class ViewParser {
   constructor(dropdownElement) {
-    this.dropdownElement = dropdownElement;
+    this._dropdownElement = dropdownElement;
   }
 
   parseState() {
     return {
-      isOpened: this.parseDropdownOpened(),
-      items: this.parseItemsNameCountArray(),
-      label: this.parseLabel(),
+      isOpened: this._parseDropdownOpened(),
+      items: this._parseItemsNameCountArray(),
+      label: this._parseLabel(),
     };
   }
 
-  parseItemsNameCountArray() {
-    const dropdownItemsElements = this.dropdownElement
+  _parseItemsNameCountArray() {
+    const dropdownItemsElements = this._dropdownElement
       .querySelectorAll('.dropdown__item');
 
     const map = Array.from(dropdownItemsElements).map((itemElement) => {
@@ -26,12 +26,12 @@ class ViewParser {
     return map;
   }
 
-  parseDropdownOpened() {
-    return this.dropdownElement.classList.contains('dropdown_opened');
+  _parseDropdownOpened() {
+    return this._dropdownElement.classList.contains('dropdown_opened');
   }
 
-  parseLabel() {
-    const labelElement = this.dropdownElement.querySelector('.dropdown__label');
+  _parseLabel() {
+    const labelElement = this._dropdownElement.querySelector('.dropdown__label');
     return labelElement.textContent;
   }
 }

@@ -4,16 +4,16 @@ import DropdownView from './DropdownView';
 
 class Dropdown {
   constructor(dropdownElement, onApply) {
-    this.view = new DropdownView(dropdownElement);
+    this._view = new DropdownView(dropdownElement);
 
-    const modelInitialState = this.buildModelInitialState();
-    this.model = new DropdownModel(modelInitialState);
+    const modelInitialState = this._buildModelInitialState();
+    this._model = new DropdownModel(modelInitialState);
 
-    this.presenter = new DropdownPresenter(this.model, this.view, onApply);
+    this._presenter = new DropdownPresenter(this._model, this._view, onApply);
   }
 
-  buildModelInitialState() {
-    const viewInitialState = this.view.getParser().parseState();
+  _buildModelInitialState() {
+    const viewInitialState = this._view.getParser().parseState();
     const modelItems = viewInitialState.items.map((item) => ({
       ...item,
       isCountAtMinimum: item.count === DropdownModel.MIN_COUNT,

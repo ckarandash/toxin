@@ -24,7 +24,8 @@ module.exports = {
   },
   ignorePatterns: [".eslintrc.js"],
   rules: {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "no-underscore-dangle": ["error", { allowAfterThis: true, enforceInMethodNames: false }],
   },
   settings: {
     'import/resolver': {

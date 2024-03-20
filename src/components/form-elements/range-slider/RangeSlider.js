@@ -3,25 +3,25 @@ import 'jquery-ui-slider/jquery-ui';
 
 class RangeSlider {
   constructor(rootElement) {
-    this.rootElement = rootElement;
-    this.$sliderElement = $('.js-range-slider__slider');
+    this._rootElement = rootElement;
+    this._$sliderElement = $('.js-range-slider__slider');
 
-    this.firstValueElement = this.rootElement.querySelector('.js-range-slider__first-value');
-    this.secondValueElement = this.rootElement.querySelector('.js-range-slider__second-value');
+    this._firstValueElement = this._rootElement.querySelector('.js-range-slider__first-value');
+    this._secondValueElement = this._rootElement.querySelector('.js-range-slider__second-value');
 
-    const options = this.rootElement.dataset;
+    const options = this._rootElement.dataset;
 
-    this.$slider = this.$sliderElement.slider({
+    this._$slider = this._$sliderElement.slider({
       range: true,
       min: +options.min,
       max: +options.max,
       step: 1,
       values: [+options.first_value, +options.second_value],
       change: () => {
-        this.updateValues();
+        this._updateValues();
       },
       slide: () => {
-        this.updateValues();
+        this._updateValues();
       },
       classes: {
         'ui-slider': 'range-slider',
@@ -31,10 +31,10 @@ class RangeSlider {
     });
   }
 
-  updateValues() {
-    const [firstValue, secondValue] = this.$slider.slider('values');
-    this.firstValueElement.textContent = firstValue;
-    this.secondValueElement.textContent = secondValue;
+  _updateValues() {
+    const [firstValue, secondValue] = this._$slider.slider('values');
+    this._firstValueElement.textContent = firstValue;
+    this._secondValueElement.textContent = secondValue;
   }
 }
 

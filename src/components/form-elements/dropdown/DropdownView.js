@@ -8,18 +8,18 @@ class DropdownView {
     this.onClearButtonClick = null;
     this.onApplyButtonClick = null;
 
-    this.dropdownElement = rootElement;
-    this.dropdownItems = this.buildDropdownItems();
+    this._dropdownElement = rootElement;
+    this._dropdownItems = this._buildDropdownItems();
 
-    this.renderer = new ViewRenderer(this.dropdownElement, this.dropdownItems);
-    this.parser = new ViewParser(this.dropdownElement);
+    this._renderer = new ViewRenderer(this._dropdownElement, this._dropdownItems);
+    this._parser = new ViewParser(this._dropdownElement);
 
-    this.handleDropdownHeader();
-    this.handleClearApplyButtons();
+    this._handleDropdownHeader();
+    this._handleClearApplyButtons();
   }
 
-  buildDropdownItems() {
-    const dropdownItemsElements = this.dropdownElement
+  _buildDropdownItems() {
+    const dropdownItemsElements = this._dropdownElement
       .querySelectorAll('.js-dropdown__item');
 
     const dropdownItems = Array.from(dropdownItemsElements).map((itemElement) => {
@@ -52,8 +52,8 @@ class DropdownView {
     return dropdownItems;
   }
 
-  handleDropdownHeader() {
-    const dropdownHeader = this.dropdownElement
+  _handleDropdownHeader() {
+    const dropdownHeader = this._dropdownElement
       .querySelector('.js-dropdown__header');
 
     dropdownHeader.addEventListener('click', () => {
@@ -61,9 +61,9 @@ class DropdownView {
     });
   }
 
-  handleClearApplyButtons() {
-    const clearBtn = this.dropdownElement.querySelector('.js-dropdown__clear-btn');
-    const applyBtn = this.dropdownElement.querySelector('.js-dropdown__apply-btn');
+  _handleClearApplyButtons() {
+    const clearBtn = this._dropdownElement.querySelector('.js-dropdown__clear-btn');
+    const applyBtn = this._dropdownElement.querySelector('.js-dropdown__apply-btn');
 
     clearBtn.addEventListener('click', () => {
       this.onClearButtonClick();
@@ -75,11 +75,11 @@ class DropdownView {
   }
 
   getParser() {
-    return this.parser;
+    return this._parser;
   }
 
   getRenderer() {
-    return this.renderer;
+    return this._renderer;
   }
 }
 

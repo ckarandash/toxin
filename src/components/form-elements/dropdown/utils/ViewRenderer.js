@@ -1,34 +1,34 @@
 class ViewRenderer {
   constructor(dropdownElement, dropdownItems) {
-    this.dropdownElement = dropdownElement;
-    this.dropdownItems = dropdownItems;
+    this._dropdownElement = dropdownElement;
+    this._dropdownItems = dropdownItems;
   }
 
   render(options) {
-    this.renderOpening(options.isOpened);
-    this.renderCounts(options.items);
-    this.renderButtons(options.items);
-    this.renderLabel(options.label);
+    this._renderOpening(options.isOpened);
+    this._renderCounts(options.items);
+    this._renderButtons(options.items);
+    this._renderLabel(options.label);
   }
 
-  renderOpening(isOpened) {
+  _renderOpening(isOpened) {
     if (isOpened) {
-      this.dropdownElement.classList.add('dropdown_opened');
+      this._dropdownElement.classList.add('dropdown_opened');
     } else {
-      this.dropdownElement.classList.remove('dropdown_opened');
+      this._dropdownElement.classList.remove('dropdown_opened');
     }
   }
 
-  renderCounts(items) {
+  _renderCounts(items) {
     items.forEach((i) => {
-      const relatedElement = this.dropdownItems.find(({ name }) => name === i.name);
+      const relatedElement = this._dropdownItems.find(({ name }) => name === i.name);
       relatedElement.elements.countElement.textContent = i.count;
     });
   }
 
-  renderButtons(items) {
+  _renderButtons(items) {
     items.forEach((i) => {
-      const relatedElement = this.dropdownItems.find(({ name }) => name === i.name);
+      const relatedElement = this._dropdownItems.find(({ name }) => name === i.name);
       const { minusButton } = relatedElement.elements;
 
       const buttonDisabledClass = 'dropdown__control-btn_disabled';
@@ -40,8 +40,8 @@ class ViewRenderer {
     });
   }
 
-  renderLabel(label) {
-    const labelElement = this.dropdownElement.querySelector('.dropdown__label');
+  _renderLabel(label) {
+    const labelElement = this._dropdownElement.querySelector('.dropdown__label');
     labelElement.textContent = label;
   }
 }

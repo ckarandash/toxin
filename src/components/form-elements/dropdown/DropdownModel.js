@@ -6,8 +6,8 @@ class DropdownModel extends Observer {
   constructor({ items = [], isOpened = false, label } = {}) {
     super(DropdownModel.EVENTS);
 
-    this.defaultLabel = label;
-    this.state = {
+    this._defaultLabel = label;
+    this._state = {
       items,
       isOpened: true,
       label,
@@ -15,17 +15,17 @@ class DropdownModel extends Observer {
   }
 
   getState() {
-    return this.state;
+    return this._state;
   }
 
   toggleOpened() {
-    this.state.isOpened = !this.state.isOpened;
-    this.notify(this.events.MODEL_UPDATED);
+    this._state.isOpened = !this._state.isOpened;
+    this.notify(this._events.MODEL_UPDATED);
   }
 
   changeItemCount(itemName, changeType) {
-    const itemIdx = this.state.items.findIndex(({ name }) => name === itemName);
-    const newItem = { ...this.state.items[itemIdx] };
+    const itemIdx = this._state.items.findIndex(({ name }) => name === itemName);
+    const newItem = { ...this._state.items[itemIdx] };
 
     switch (changeType) {
       case 'reduce':
@@ -52,27 +52,27 @@ class DropdownModel extends Observer {
         throwUnreachable();
     }
 
-    this.state.items[itemIdx] = newItem;
-    this.notify(this.events.MODEL_UPDATED);
+    this._state.items[itemIdx] = newItem;
+    this.notify(this._events.MODEL_UPDATED);
   }
 
   setMinimumCounts() {
-    this.state.items = this.state.items.map((i) => (
+    this._state.items = this._state.items.map((i) => (
       { ...i, count: DropdownModel.MIN_COUNT, isCountAtMinimum: true }
     ));
-    this.notify(this.events.MODEL_UPDATED);
+    this.notify(this._events.MODEL_UPDATED);
   }
 
-  buildFullLabel() {
-    const areAllItemsAtMinimum = !this.state.items.find(
+  _buildFullLabel() {
+    const areAllItemsAtMinimum = !this._state.items.find(
       ({ count }) => count !== DropdownModel.MIN_COUNT,
     );
 
     if (areAllItemsAtMinimum) {
-      return this.defaultLabel;
+      return this._defaultLabel;
     }
 
-    const wordWithCountStrings = this.state.items
+    const wordWithCountStrings = this._state.items
       .filter(({ count }) => count !== 0)
       .map((item) => getCountOfWordString(item.count, item.word));
 
@@ -80,8 +80,8 @@ class DropdownModel extends Observer {
     return label;
   }
 
-  buildLabel() {
-    const fullLabel = this.buildFullLabel();
+  _buildLabel() {
+    const fullLabel = this._buildFullLabel();
     const cutLabel = `${fullLabel.slice(0, DropdownModel.LABEL_MAX_LENGTH)}...`;
 
     const isLabelTooLong = fullLabel.length >= DropdownModel.LABEL_MAX_LENGTH;
@@ -91,7 +91,7 @@ class DropdownModel extends Observer {
   }
 
   updateLabel() {
-    this.state.label = this.buildLabel();
+    this._state.label = this._buildLabel();
     this.notify(DropdownModel.EVENTS.MODEL_UPDATED);
   }
 }

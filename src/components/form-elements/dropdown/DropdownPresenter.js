@@ -2,38 +2,38 @@ import throwUnreachable from '../../../js/throwUnreachable';
 
 class DropdownPresenter {
   constructor(model, view, onApply) {
-    this.dropdownModel = model;
-    this.dropdownView = view;
-    this.onApply = onApply;
+    this._dropdownModel = model;
+    this._dropdownView = view;
+    this._onApply = onApply;
 
-    const modelEvents = this.dropdownModel.getEvents();
-    this.dropdownModel.addSubscriber(
-      this.onModelUpdated.bind(this),
+    const modelEvents = this._dropdownModel.getEvents();
+    this._dropdownModel.addSubscriber(
+      this._onModelUpdated.bind(this),
       modelEvents.MODEL_UPDATED,
     );
 
-    this.dropdownView.onHeaderClick = this.handleViewHeaderClick.bind(this);
-    this.dropdownView.onItemButtonClick = this.handleViewItemButtonClick.bind(this);
-    this.dropdownView.onClearButtonClick = this.handleViewClearButtonClick.bind(this);
-    this.dropdownView.onApplyButtonClick = this.handleViewApplyButtonClick.bind(this);
+    this._dropdownView.onHeaderClick = this._handleViewHeaderClick.bind(this);
+    this._dropdownView.onItemButtonClick = this._handleViewItemButtonClick.bind(this);
+    this._dropdownView.onClearButtonClick = this._handleViewClearButtonClick.bind(this);
+    this._dropdownView.onApplyButtonClick = this._handleViewApplyButtonClick.bind(this);
 
-    this.renderView();
+    this._renderView();
   }
 
-  handleViewHeaderClick() {
-    this.dropdownModel.toggleOpened();
+  _handleViewHeaderClick() {
+    this._dropdownModel.toggleOpened();
   }
 
-  handleViewItemButtonClick({ itemName, buttonType }) {
+  _handleViewItemButtonClick({ itemName, buttonType }) {
     switch (buttonType) {
       case 'minus':
-        this.dropdownModel.changeItemCount(itemName, 'reduce');
-        this.dropdownModel.updateLabel();
+        this._dropdownModel.changeItemCount(itemName, 'reduce');
+        this._dropdownModel.updateLabel();
         break;
 
       case 'plus':
-        this.dropdownModel.changeItemCount(itemName, 'increase');
-        this.dropdownModel.updateLabel();
+        this._dropdownModel.changeItemCount(itemName, 'increase');
+        this._dropdownModel.updateLabel();
         break;
 
       default:
@@ -41,23 +41,23 @@ class DropdownPresenter {
     }
   }
 
-  handleViewClearButtonClick() {
-    this.dropdownModel.setMinimumCounts();
-    this.dropdownModel.updateLabel();
+  _handleViewClearButtonClick() {
+    this._dropdownModel.setMinimumCounts();
+    this._dropdownModel.updateLabel();
   }
 
-  handleViewApplyButtonClick() {
-    const modelItems = this.dropdownModel.getState().items;
+  _handleViewApplyButtonClick() {
+    const modelItems = this._dropdownModel.getState().items;
     const applyItems = modelItems.map(({ name, count }) => ({ name, count }));
-    this.onApply(applyItems);
+    this._onApply(applyItems);
   }
 
-  onModelUpdated() {
-    this.renderView();
+  _onModelUpdated() {
+    this._renderView();
   }
 
-  renderView() {
-    this.dropdownView.getRenderer().render(this.dropdownModel.getState());
+  _renderView() {
+    this._dropdownView.getRenderer().render(this._dropdownModel.getState());
   }
 }
 
