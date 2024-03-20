@@ -13,10 +13,10 @@ class ViewParser {
 
   _parseItemsNameCountArray() {
     const dropdownItemsElements = this._dropdownElement
-      .querySelectorAll('.dropdown__item');
+      .querySelectorAll('.js-dropdown__item');
 
     const map = Array.from(dropdownItemsElements).map((itemElement) => {
-      const itemCount = +itemElement.querySelector('.dropdown__item-count').textContent;
+      const itemCount = +itemElement.querySelector('.js-dropdown__item-count').textContent;
       const itemName = itemElement.dataset.name;
       const itemWord = itemElement.dataset.word;
 
@@ -31,7 +31,7 @@ class ViewParser {
   }
 
   _parseLabel() {
-    const labelElement = this._dropdownElement.querySelector('.dropdown__label');
+    const labelElement = this._dropdownElement.querySelector('.js-dropdown__label');
     return labelElement.textContent;
   }
 }

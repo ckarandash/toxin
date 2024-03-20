@@ -3,7 +3,7 @@ mixin dropdown({ items=[], question="", withClear=false, withApply=false })
 
   .dropdown.js-dropdown
     .dropdown__header.js-dropdown__header
-      .dropdown__label #{question}
+      .dropdown__label.js-dropdown__label #{question}
     .dropdown__body
       ul.dropdown__items
         each item in items

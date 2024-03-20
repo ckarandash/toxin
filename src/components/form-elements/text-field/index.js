@@ -1,7 +1,7 @@
 import Inputmask from 'inputmask';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const inputs = document.querySelectorAll('.text-field__input_masked');
+  const inputs = document.querySelectorAll('.js-text-field__input_masked');
 
   const im = new Inputmask({
     alias: 'datetime',

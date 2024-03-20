@@ -3,7 +3,7 @@ mixin text-field({ placeholder="", isMasked=false, hasArrow=false })
   - const classes = [inputClass]
 
   if isMasked
-    - classes.push(`${inputClass}_masked`)
+    - classes.push(`js-${inputClass}_masked`)
 
   if hasArrow
     - classes.push(`${inputClass}_with_arrow`)

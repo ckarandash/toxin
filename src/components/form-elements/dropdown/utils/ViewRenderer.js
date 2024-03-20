@@ -41,7 +41,7 @@ class ViewRenderer {
   }
 
   _renderLabel(label) {
-    const labelElement = this._dropdownElement.querySelector('.dropdown__label');
+    const labelElement = this._dropdownElement.querySelector('.js-dropdown__label');
     labelElement.textContent = label;
   }
 }
