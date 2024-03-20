@@ -15,6 +15,7 @@
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
     "@types/inputmask": "^5.0.7",
+    "@types/jqueryui": "^1.12.21",
     "@types/node": "^20.11.24",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
@@ -42,6 +43,9 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
-    "inputmask": "^5.0.8"
+    "inputmask": "^5.0.8",
+    "jquery": "^3.7.1",
+    "jquery-ui": "^1.13.2",
+    "jquery-ui-slider": "^1.12.1"
   }
 }

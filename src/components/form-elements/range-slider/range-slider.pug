@@ -1,0 +1,20 @@
+mixin range-slider({ label, options, description=''})
+  - const hasDescription = description !== '';
+
+  .range-slider.js-range-slider(
+    data-min=options.min
+    data-max=options.max
+    data-first_value=options.firstValue
+    data-second_value=options.secondValue
+  )
+    .range-slider__header
+      .range-slider__label= label
+      .range-slider__values
+        span.range-slider__first-value.js-range-slider__first-value= options.firstValue
+        = '₽ - '
+        span.range-slider__second-value.js-range-slider__second-value= options.secondValue
+        = '₽'
+    .range-slider__slider.js-range-slider__slider
+
+    if (hasDescription)
+      .range-slider__description= description

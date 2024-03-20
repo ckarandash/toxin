@@ -1,0 +1,48 @@
+@use '@sass/_variables'
+@use '@sass/_mixins'
+@use '@sass/_functions'
+@import 'jquery-ui-slider/jquery-ui.css'
+  
+.range-slider
+  &__slider
+    height: 6px
+    border: 1px solid variables.$dark_25
+    border-radius: 3px
+
+    .range-slider__range
+      top: 0
+      bottom: 0
+      margin-top: auto
+      margin-bottom: auto
+      height: 6px
+      background-image: variables.$secondaryGradient
+
+    .range-slider__handle
+      top: 0
+      bottom: 0
+      margin-top: auto
+      margin-bottom: auto
+      width: 12px
+      height: 12px
+      background-image: variables.$secondaryGradient
+      border: 2px solid #ffffff
+      border-radius: 50%
+      outline: none
+
+  &__header
+    display: flex
+    justify-content: space-between
+    margin-bottom: 23px
+
+  &__label
+    @include mixins.labelText
+
+  &__values
+    color: variables.$secondaryTextColor
+    font: 400 functions.pxToRem(12px) / functions.pxToRem(14.6px) variables.$mainFont
+
+
+  &__description
+    margin-top: 13.5px
+    color: variables.$secondaryTextColor
+    font: 400 functions.pxToRem(12px) / functions.pxToRem(14px) variables.$mainFont
