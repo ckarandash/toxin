@@ -1,25 +1,25 @@
 mixin dropdown({ items=[], question="", withClear=false, withApply=false })
   - const withButtons = withClear || withApply
 
-  .dropdown
-    .dropdown__header
+  .dropdown.js-dropdown
+    .dropdown__header.js-dropdown__header
       .dropdown__label #{question}
     .dropdown__body
       ul.dropdown__items
         each item in items
-          li.dropdown__item(data-name=item.name data-word=item.word)
+          li.dropdown__item.js-dropdown__item(data-name=item.name data-word=item.word)
             span.dropdown__item-label= item.label
             .dropdown__item-controls
-              button.dropdown__control-btn.dropdown__item-minus -
-              .dropdown__item-count #{item.initialCount}
-              button.dropdown__control-btn.dropdown__item-plus +
+              button.dropdown__control-btn.dropdown__item-minus.js-dropdown__item-minus -
+              .dropdown__item-count.js-dropdown__item-count #{item.initialCount}
+              button.dropdown__control-btn.dropdown__item-plus.js-dropdown__item-plus +
       if withButtons
         .dropdown__buttons
           if withClear
-            button.dropdown__btn.dropdown__clear-btn очистить
+            button.dropdown__btn.dropdown__clear-btn.js-dropdown__clear-btn очистить
 
           if withApply
-            - const applyBtnClasses = ['dropdown__btn', 'dropdown__apply-btn'];
+            - const applyBtnClasses = ['dropdown__btn', 'dropdown__apply-btn', 'js-dropdown__apply-btn'];
 
             if !withClear
               - applyBtnClasses.push('dropdown__apply-btn_pushed_right');

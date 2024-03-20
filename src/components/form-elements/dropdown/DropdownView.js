@@ -20,12 +20,12 @@ class DropdownView {
 
   buildDropdownItems() {
     const dropdownItemsElements = this.dropdownElement
-      .querySelectorAll('.dropdown__item');
+      .querySelectorAll('.js-dropdown__item');
 
     const dropdownItems = Array.from(dropdownItemsElements).map((itemElement) => {
-      const itemCountElement = itemElement.querySelector('.dropdown__item-count');
-      const minusButton = itemElement.querySelector('.dropdown__item-minus');
-      const plusButton = itemElement.querySelector('.dropdown__item-plus');
+      const itemCountElement = itemElement.querySelector('.js-dropdown__item-count');
+      const minusButton = itemElement.querySelector('.js-dropdown__item-minus');
+      const plusButton = itemElement.querySelector('.js-dropdown__item-plus');
 
       const itemName = itemElement.dataset.name;
 
@@ -54,7 +54,7 @@ class DropdownView {
 
   handleDropdownHeader() {
     const dropdownHeader = this.dropdownElement
-      .querySelector('.dropdown__header');
+      .querySelector('.js-dropdown__header');
 
     dropdownHeader.addEventListener('click', () => {
       this.onHeaderClick();
@@ -62,8 +62,8 @@ class DropdownView {
   }
 
   handleClearApplyButtons() {
-    const clearBtn = this.dropdownElement.querySelector('.dropdown__clear-btn');
-    const applyBtn = this.dropdownElement.querySelector('.dropdown__apply-btn');
+    const clearBtn = this.dropdownElement.querySelector('.js-dropdown__clear-btn');
+    const applyBtn = this.dropdownElement.querySelector('.js-dropdown__apply-btn');
 
     clearBtn.addEventListener('click', () => {
       this.onClearButtonClick();
