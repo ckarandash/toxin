@@ -3,10 +3,10 @@ import ViewParser from './utils/ViewParser';
 
 class DropdownView {
   constructor(rootElement) {
-    this.onHeaderClick = null;
-    this.onItemButtonClick = null;
-    this.onClearButtonClick = null;
-    this.onApplyButtonClick = null;
+    this._onHeaderClick = null;
+    this._onItemButtonClick = null;
+    this._onClearButtonClick = null;
+    this._onApplyButtonClick = null;
 
     this._dropdownElement = rootElement;
     this._dropdownItems = this._buildDropdownItems();
@@ -16,6 +16,13 @@ class DropdownView {
 
     this._handleDropdownHeader();
     this._handleClearApplyButtons();
+  }
+
+  setHandlers(handlers) {
+    this._onHeaderClick = handlers.headerClick;
+    this._onItemButtonClick = handlers.itemButtonClick;
+    this._onClearButtonClick = handlers.clearButtonClick;
+    this._onApplyButtonClick = handlers.applyButtonClick;
   }
 
   _buildDropdownItems() {
@@ -29,11 +36,11 @@ class DropdownView {
 
       const itemName = itemElement.dataset.name;
 
-      minusButton.addEventListener('click', () => this.onItemButtonClick({
+      minusButton.addEventListener('click', () => this._onItemButtonClick({
         itemName, buttonType: 'minus',
       }));
 
-      plusButton.addEventListener('click', () => this.onItemButtonClick({
+      plusButton.addEventListener('click', () => this._onItemButtonClick({
         itemName, buttonType: 'plus',
       }));
 
@@ -57,7 +64,7 @@ class DropdownView {
       .querySelector('.js-dropdown__header');
 
     dropdownHeader.addEventListener('click', () => {
-      this.onHeaderClick();
+      this._onHeaderClick();
     });
   }
 
@@ -66,11 +73,11 @@ class DropdownView {
     const applyBtn = this._dropdownElement.querySelector('.js-dropdown__apply-btn');
 
     clearBtn.addEventListener('click', () => {
-      this.onClearButtonClick();
+      this._onClearButtonClick();
     });
 
     applyBtn.addEventListener('click', () => {
-      this.onApplyButtonClick();
+      this._onApplyButtonClick();
     });
   }
 

@@ -12,10 +12,12 @@ class DropdownPresenter {
       modelEvents.MODEL_UPDATED,
     );
 
-    this._dropdownView.onHeaderClick = this._handleViewHeaderClick.bind(this);
-    this._dropdownView.onItemButtonClick = this._handleViewItemButtonClick.bind(this);
-    this._dropdownView.onClearButtonClick = this._handleViewClearButtonClick.bind(this);
-    this._dropdownView.onApplyButtonClick = this._handleViewApplyButtonClick.bind(this);
+    this._dropdownView.setHandlers({
+      headerClick: this._handleViewHeaderClick.bind(this),
+      itemButtonClick: this._handleViewItemButtonClick.bind(this),
+      clearButtonClick: this._handleViewClearButtonClick.bind(this),
+      applyButtonClick: this._handleViewApplyButtonClick.bind(this),
+    });
 
     this._renderView();
   }
