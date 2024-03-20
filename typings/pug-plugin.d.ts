@@ -3,6 +3,9 @@ declare module 'pug-plugin' {
 
   type PugPluginOptions = Partial<{
     pretty: boolean,
+    entry: {
+      index: string,
+    },
     js: { filename: string },
     css: { filename: string }
   }>;

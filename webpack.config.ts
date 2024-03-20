@@ -7,9 +7,9 @@ import buildDevServer from './config/build/buildDevServer';
 const buildConfig = () => {
   const config: webpack.Configuration = {
     mode: 'development',
-    entry: {
-      index: './index.pug',
-    },
+    // entry: {
+    //   index: './index.pug',
+    // },
 
     output: {
       path: path.resolve('build'),
