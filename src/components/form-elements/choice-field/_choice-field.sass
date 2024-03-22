@@ -1,0 +1,91 @@
+@use '@sass/variables'
+@use '@sass/mixins'  
+@use '@sass/functions'
+
+.choice-field
+  display: flex
+  cursor: pointer
+
+  &__input
+    margin: 0
+    position: relative
+    width: 20px
+    height: 20px
+    border: variables.$staticBorder
+    border-radius: variables.$mainBorderRadius
+    background-color: variables.$mainBackgroundColor
+    cursor: pointer
+
+    &:checked
+      border-color: variables.$purple
+    
+    &_type_checkbox
+      &:checked
+        &::after
+          content: ''
+          position: absolute
+          top: 4px
+          left: 6px
+          width: 6px
+          height: 8px
+          border-style: solid
+          border-width: 0 2px 2px 0
+          border-image: variables.$primaryGradient 25%
+          transform: rotate(45deg)
+
+    &_type_radio
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 50%
+
+      &:checked
+        &::after
+          content: ''
+          width: 12px
+          height: 12px
+          border: 1px solid transparent
+          border-radius: 50%
+          background-image: variables.$primaryGradient
+
+    &_type_toggle
+      display: flex
+      align-items: center
+      width: 40px
+      border-radius: 10px
+
+      &::after
+        position: absolute
+        content: ''
+        width: 12px
+        height: 12px
+        border-radius: 50%
+        margin-left: 3px
+        background-color: variables.$dark_25
+        transition: transform 0.2s ease, background-image 0.2s ease
+
+      &:checked
+        &::after
+          background-image: variables.$primaryGradient
+          transform: translateX(20px)
+
+  &__text
+    margin-left: 10px
+
+  &__title
+    margin-top: 1px
+    font: 400 functions.pxToRem(14px) / functions.pxToRem(18px) variables.$mainFont
+    color: variables.$secondaryTextColor
+
+    &_darker
+      color: variables.$dark_75
+
+    &_rich
+      margin-top: 2px
+      color: variables.$dark_75
+      font-weight: 700
+  
+  &__description
+    margin-top: 5px
+    font: 400 functions.pxToRem(12px) / functions.pxToRem(14px) variables.$mainFont
+    color: variables.$secondaryTextColor

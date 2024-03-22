@@ -1,0 +1,40 @@
+mixin choice-field({ type, name, description="", title="", isRich=false })
+  - const withDescription = description !== '';
+  - const withTitle = title !== '';
+  - const withText = withDescription || withTitle;
+
+  - let inputType;
+  - let inputClass;
+
+  case type 
+    when 'checkbox'
+      - inputType = 'checkbox';
+      - inputClass = 'choice-field__input_type_checkbox';
+
+    when 'radio'
+      - inputType = 'radio';
+      - inputClass = 'choice-field__input_type_radio';
+    
+    when 'toggle'
+      - inputType = 'checkbox';
+      - inputClass = 'choice-field__input_type_toggle';
+
+  label.choice-field
+    input.choice-field__input(class=inputClass type=inputType name=name)
+
+    if withText
+      .choice-field__text
+      
+        if withTitle
+          - let titleModifier = null;
+
+          if type === 'toggle'
+            - titleModifier = 'choice-field__title_darker';
+          
+          if isRich
+            - titleModifier = 'choice-field__title_rich';
+          
+          .choice-field__title(class=titleModifier)= title
+
+        if withDescription
+          .choice-field__description= description
