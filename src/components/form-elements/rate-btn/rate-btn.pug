@@ -1,0 +1,25 @@
+mixin rate-btn({ averageRate, userRate = null })
+  - const isRated = userRate !== null;
+  - const starsCount = 5;
+  - let filledStars;
+  - let unfilledStars;
+
+  -
+    if (isRated) {
+      filledStars = new Array(userRate);
+      unfilledStars = new Array(starsCount - userRate);
+    } else {
+      filledStars = new Array(averageRate);
+      unfilledStars = new Array(starsCount - averageRate);
+    }
+
+  button.rate-btn.js-rate-btn(
+    class=isRated ? 'rate-btn_rated' : null
+    data-average_rate=averageRate
+    data-user_rate=userRate
+  )
+    each val in filledStars
+      span.rate-btn__star.js-rate-btn-star.js-rate-btn-star-filled
+
+    each val in unfilledStars
+      span.rate-btn__star.rate-btn__star_unfilled.js-rate-btn-star.js-rate-btn-star-unfilled

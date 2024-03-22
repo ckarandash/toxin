@@ -1,0 +1,25 @@
+@use '@sass/variables'
+  
+.rate-btn
+  background-color: transparent
+  border: none
+
+  &__star
+    display: inline-block
+    width: 24px
+
+    &::before
+      content: 'star_filled'
+      font-family: 'Material Icons'
+      font-size: 24px
+      background-image: variables.$primaryGradient
+      background-clip: text
+      color: transparent
+
+    &_unfilled
+      &::before
+        content: 'star_border'
+  
+  &_rated
+    .rate-btn__star::before
+      background-image: variables.$secondaryGradient
