@@ -2,6 +2,7 @@ include @components/form-elements/text-field/text-field.pug
 include @components/form-elements/dropdown/dropdown.pug
 include @components/form-elements/range-slider/range-slider.pug
 include @components/form-elements/choice-field/choice-field.pug
+include @components/form-elements/like-btn/like-btn.pug
 
 doctype html
 html(lang="en")
@@ -38,4 +39,6 @@ html(lang="en")
     //-   }
     //- })
 
-    +choice-field({ type: 'checkbox', name: 'some-name', isRich: true, title:"Широкий коридор", description: 'Ширина коридоров в номере не менее 91 см.' })
+    //- +choice-field({ type: 'checkbox', name: 'some-name', isRich: true, title:"Широкий коридор", description: 'Ширина коридоров в номере не менее 91 см.' })
+
+    +like-btn({ likesCount: 2 })
