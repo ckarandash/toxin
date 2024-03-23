@@ -4,6 +4,7 @@ include @components/form-elements/range-slider/range-slider.pug
 include @components/form-elements/choice-field/choice-field.pug
 include @components/form-elements/like-btn/like-btn.pug
 include @components/form-elements/rate-btn/rate-btn.pug
+include @components/form-elements/btn/btn.pug
 
 doctype html
 html(lang="en")
@@ -42,4 +43,6 @@ html(lang="en")
 
     //- +choice-field({ type: 'checkbox', name: 'some-name', isRich: true, title:"Широкий коридор", description: 'Ширина коридоров в номере не менее 91 см.' })
 
-    +rate-btn({ averageRate: 4, userRate: 2 })
+    //- +rate-btn({ averageRate: 4, userRate: 2 })
+
+    +btn({ label: '2', size: 'max', theme: 'purple', withArrow: true, disabled: true, isThin: false })

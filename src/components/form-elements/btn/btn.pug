@@ -1,0 +1,51 @@
+mixin btn({ label, theme='plain', isThin=false, withArrow=false, size='average', disabled=false })
+  -
+    let themeClass = '';
+    let disabledClasses = ['btn_disabled'];
+
+    if (theme === 'plain') {
+      themeClass = 'btn_theme_plain';
+      disabledClasses.push('btn_theme_plain_disabled');
+    } else if (theme === 'purple') {
+      themeClass = 'btn_theme_purple';
+      disabledClasses.push('btn_theme_purple_disabled');
+    } else if (theme === 'white') {
+      themeClass = 'btn_theme_white';
+      disabledClasses.push('btn_theme_white_disabled');
+    } else if (theme === 'green') {
+      themeClass = 'btn_theme_green';
+      disabledClasses.push('btn_theme_green_disabled');
+    }
+
+    let arrowClasses = [];
+
+    if (withArrow) {
+      arrowClasses.push('btn_with_arrow');
+
+      if (size === 'small') {
+        arrowClasses.push(' btn_with_arrow_small');
+      }
+    }
+
+    let sizeClass = '';
+
+    if (size === 'small') {
+      sizeClass = 'btn_size_small';
+    } else if (size === 'average') {
+      sizeClass = 'btn_size_average';
+    } else if (size === 'max') {
+      sizeClass = 'btn_size_max';
+    }
+
+    let thinClass = '';
+
+    if (isThin) {
+      thinClass = 'btn_thin'
+    }
+
+  button.btn(
+    class=[themeClass, sizeClass, thinClass,
+      arrowClasses, disabled ? disabledClasses : []]
+    disabled=disabled
+  )
+    span.btn__label= label
