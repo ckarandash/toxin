@@ -1,0 +1,121 @@
+@use '@sass/variables'
+@use '@sass/mixins'
+@use '@sass/functions'
+@import 'air-datepicker/air-datepicker.css'
+
+.calendar
+  .air-datepicker
+    box-sizing: border-box
+    width: 320px
+    padding: 15px
+    padding-top: 12px
+    background-color: variables.$mainBackgroundColor
+    border: variables.$staticBorder
+    border-radius: variables.$mainBorderRadius
+    box-shadow: 0 10px 20px variables.$dark_05
+
+    &--navigation
+      margin-bottom: 9px
+
+    &-nav
+      border-bottom: none
+      padding-left: 0
+      padding-right: 0
+
+    &-nav--title
+      @include mixins.subheadingText
+      text-transform: none
+
+    &-nav--action
+      svg
+        display: none
+
+      &::before
+        font-family: 'Material Icons'
+        font-size: 24px
+        color: variables.$purple
+
+      &[data-action="prev"]::before
+        content: 'arrow_back'
+
+      &[data-action="next"]::before
+        content: 'arrow_forward'
+
+    &-body--day-names
+      margin-bottom: 0
+
+    &-body--cells
+      grid-auto-rows: 40px
+
+    &-body--day-name
+      display: flex
+      justify-content: center
+      align-items: center
+      height: 40px
+      color: variables.$purple
+      font: 700 functions.pxToRem(12px) / functions.pxToRem(14.6px) variables.$mainFont
+      text-transform: none
+
+    &-cell
+      display: flex
+      justify-content: center
+      align-items: center
+      color: variables.$secondaryTextColor
+      font: 400 functions.pxToRem(12px) / functions.pxToRem(14.6px) variables.$mainFont
+
+      &.-day-
+        height: 40px
+        width: 40px
+
+      &.-other-month-
+        color: variables.$dark_25
+
+      &.-current-, &.-selected-
+        border-radius: 50%
+        font-weight: 700
+        color: #ffffff
+
+      &.-current-
+        background-image: variables.$secondaryGradient
+
+      &.-selected-
+        position: relative
+        background-image: linear-gradient(variables.$purple, #8ba4f9)
+        
+
+        &::before
+          z-index: -1
+          content: ''
+          position: absolute
+          display: block
+          width: 50%
+          height: 100%
+          background-image: linear-gradient(rgba(variables.$purple, 0.25), rgba(#8ba4f9, 0.25))
+
+        &.-range-from-
+          &::before
+            left: 50%
+
+        &.-range-to-
+          &::before
+            right: 50%
+
+      &.-in-range-
+        // todo: replace with variable (maybe mixin with alpha argument)
+        background: none
+        background-image: linear-gradient(rgba(variables.$purple, 0.25), rgba(#8ba4f9, 0.25))
+
+    &--buttons
+      margin-top: 13.5px
+      border-top: none
+
+    &-buttons
+      display: flex
+      justify-content: space-between
+
+    &-button
+      height: auto
+      width: auto
+      color: variables.$purple
+      font: 700 functions.pxToRem(12px) / functions.pxToRem(14.6px) variables.$mainFont
+      text-transform: uppercase
