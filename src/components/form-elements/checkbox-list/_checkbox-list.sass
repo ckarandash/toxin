@@ -1,0 +1,42 @@
+@use '@sass/mixins'
+@use '@sass/variables'
+
+.checkbox-list
+  // todo: test value. Remove later
+  width: 256px
+
+  &_opened
+    .checkbox-list__label::after
+      content: 'expand_less'
+
+    .checkbox-list__list
+      display: block
+
+  &__list
+    display: none
+    margin-top: 1.5px
+
+  &__label
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-top: 12px
+    padding-bottom: 12px
+    @include mixins.labelText
+    cursor: pointer
+
+    &::after
+      position: relative
+      bottom: 0.5px
+      content: 'expand_more'
+      display: block
+      height: 100%
+      color: variables.$dark_50
+      font: 400 24px / 24px 'Material Icons'
+      text-transform: none
+
+  &__item
+    margin-top: 10px
+
+    &:first-child
+      margin-top: 0

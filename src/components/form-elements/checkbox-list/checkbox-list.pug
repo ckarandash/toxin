@@ -1,0 +1,9 @@
+include @components/form-elements/choice-field/choice-field.pug
+
+mixin checkbox-list({ label, items })
+  .checkbox-list
+    .checkbox-list__label= label
+    ul.checkbox-list__list
+      each item in items
+        li.checkbox-list__item
+          +choice-field({ type: "checkbox", name: item.name, title: item.label, checked: item.checked })

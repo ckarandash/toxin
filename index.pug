@@ -5,6 +5,7 @@ include @components/form-elements/choice-field/choice-field.pug
 include @components/form-elements/like-btn/like-btn.pug
 include @components/form-elements/rate-btn/rate-btn.pug
 include @components/form-elements/btn/btn.pug
+include @components/form-elements/checkbox-list/checkbox-list.pug
 
 include @components/cards/calendar/calendar.pug
 
@@ -48,4 +49,15 @@ html(lang="en")
     //- +rate-btn({ averageRate: 4, userRate: 2 })
 
     //- +btn({ label: '2', size: 'max', theme: 'purple', withArrow: true, disabled: true, isThin: false })
-    +calendar()
+    //- +calendar()
+    +checkbox-list({
+      label: 'expandable checkbox list',
+      items: [
+        { name: 's', label: 'Завтрак' },
+        { name: 's', label: 'Письменный стол' },
+        { name: 's', label: 'Стул для кормления', checked: true },
+        { name: 's', label: 'Кроватка', checked: true },
+        { name: 's', label: 'Телевизор' },
+        { name: 's', label: 'Шампунь' },
+      ] 
+    })
