@@ -1,0 +1,22 @@
+@use '@sass/variables'
+@use '@sass/mixins'  
+
+.bullet-list
+  &__item
+    display: flex
+    margin-top: 10px
+    @include mixins.bodyText
+
+    &:first-child
+      margin-top: 0
+
+    &::before
+      content: ''
+      display: block
+      flex-shrink: 0
+      width: 10px
+      height: 10px
+      margin-top: 7.5px
+      margin-right: 10.43px
+      background-color: variables.$dark_25
+      border-radius: 50%

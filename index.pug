@@ -6,6 +6,7 @@ include @components/form-elements/like-btn/like-btn.pug
 include @components/form-elements/rate-btn/rate-btn.pug
 include @components/form-elements/btn/btn.pug
 include @components/form-elements/checkbox-list/checkbox-list.pug
+include @components/form-elements/bullet-list/bullet-list.pug
 
 include @components/cards/calendar/calendar.pug
 
@@ -50,14 +51,22 @@ html(lang="en")
 
     //- +btn({ label: '2', size: 'max', theme: 'purple', withArrow: true, disabled: true, isThin: false })
     //- +calendar()
-    +checkbox-list({
-      label: 'expandable checkbox list',
+    //- +checkbox-list({
+    //-   label: 'expandable checkbox list',
+    //-   items: [
+    //-     { name: 's', label: 'Завтрак' },
+    //-     { name: 's', label: 'Письменный стол' },
+    //-     { name: 's', label: 'Стул для кормления', checked: true },
+    //-     { name: 's', label: 'Кроватка', checked: true },
+    //-     { name: 's', label: 'Телевизор' },
+    //-     { name: 's', label: 'Шампунь' },
+    //-   ] 
+    //- })
+
+    +bullet-list({
       items: [
-        { name: 's', label: 'Завтрак' },
-        { name: 's', label: 'Письменный стол' },
-        { name: 's', label: 'Стул для кормления', checked: true },
-        { name: 's', label: 'Кроватка', checked: true },
-        { name: 's', label: 'Телевизор' },
-        { name: 's', label: 'Шампунь' },
-      ] 
+        { label: 'Нельзя с питомцами' },
+        { label: 'Без вечеринок и мероприятий' },
+        { label: 'Время прибытия — после 13:00, а выезд до 12:00' },
+      ]
     })
