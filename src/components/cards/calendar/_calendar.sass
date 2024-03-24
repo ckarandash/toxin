@@ -71,8 +71,34 @@
       color: variables.$secondaryTextColor
       font: 400 functions.pxToRem(12px) / functions.pxToRem(14.6px) variables.$mainFont
 
-      &.-current-.-month-, &.-current-.-year-
+      &.-current-.-month-, &.-current-.-year-,
+      &.-selected-.-month-, &.-selected-.-year-
         border-radius: 4px
+
+      &.-selected-.-year-, &.-selected-.-month-,
+      &.-selected-.-year-.-other-decade-
+        background-image: variables.$primaryGradient
+
+      &.-year-.-other-decade-.-focus-,
+      &.-year-.-other-decade-.-in-range-
+        background-color: transparent
+
+      &.-year-.-other-decade-
+        color: variables.$dark_25
+
+        &.-selected-
+          color: #ffffff
+
+      &.-current-.-in-range-
+        background-image: variables.$secondaryGradient
+
+        &::before
+          width: 100%
+          height: 100%
+          position: absolute
+          z-index: -1
+          content: ''
+          background-image: linear-gradient(rgba(variables.$purple, 0.25), rgba(#8ba4f9, 0.25))
 
       &.-day-
         height: 40px
@@ -109,7 +135,7 @@
         position: relative
         background-image: linear-gradient(variables.$purple, #8ba4f9)
         
-        &::before
+        &.-day-::before
           z-index: -1
           content: ''
           position: absolute
