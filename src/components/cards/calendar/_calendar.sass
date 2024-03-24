@@ -100,10 +100,14 @@
           &::before
             right: 50%
 
-      &.-in-range-
+      &.-in-range-, &.-focus-
         // todo: replace with variable (maybe mixin with alpha argument)
         background: none
         background-image: linear-gradient(rgba(variables.$purple, 0.25), rgba(#8ba4f9, 0.25))
+
+      &.-selected-.-focus-
+        background: none
+        background-image: variables.$primaryGradient
 
     &--buttons
       margin-top: 13.5px
