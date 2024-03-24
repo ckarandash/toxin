@@ -70,6 +70,22 @@
       &.-other-month-
         color: variables.$dark_25
 
+        &.-selected-
+          background: none
+          background-image: linear-gradient(variables.$purple, #8ba4f9)
+
+        &.-selected-.-focus-
+          background: none
+          background-image: variables.$primaryGradient
+
+        &.-in-range-
+          background: none
+          background-image: linear-gradient(rgba(variables.$purple, 0.25), rgba(#8ba4f9, 0.25))
+          color: variables.$dark_25
+
+        &.-in-range-.-focus-
+            background-color: transparent
+
       &.-current-, &.-selected-
         border-radius: 50%
         font-weight: 700
