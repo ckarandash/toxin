@@ -1,0 +1,7 @@
+mixin advantages-list({ items })
+  ul.advantages-list
+    each item in items
+      li.advantages-list__item(data-icon=item.materialIcon)
+        .advantages-list__item-text
+          .advantages-list__item-name= item.name
+          .advantages-list__item-description= item.description

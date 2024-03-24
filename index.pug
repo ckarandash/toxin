@@ -7,6 +7,7 @@ include @components/form-elements/rate-btn/rate-btn.pug
 include @components/form-elements/btn/btn.pug
 include @components/form-elements/checkbox-list/checkbox-list.pug
 include @components/form-elements/bullet-list/bullet-list.pug
+include @components/form-elements/advantages-list/advantages-list.pug
 
 include @components/cards/calendar/calendar.pug
 
@@ -63,10 +64,18 @@ html(lang="en")
     //-   ] 
     //- })
 
-    +bullet-list({
+    //- +bullet-list({
+    //-   items: [
+    //-     { label: 'Нельзя с питомцами' },
+    //-     { label: 'Без вечеринок и мероприятий' },
+    //-     { label: 'Время прибытия — после 13:00, а выезд до 12:00' },
+    //-   ]
+    //- })
+
+    +advantages-list({
       items: [
-        { label: 'Нельзя с питомцами' },
-        { label: 'Без вечеринок и мероприятий' },
-        { label: 'Время прибытия — после 13:00, а выезд до 12:00' },
+        { materialIcon: 'insert_emoticon', name: 'Комфорт', description: 'Шумопоглощающие стены' },
+        { materialIcon: 'location_city', name: 'Удобство', description: 'Окно в каждой из спален' },
+        { materialIcon: 'whatshot', name: 'Уют', description: 'Номер оснащён камином' },
       ]
     })

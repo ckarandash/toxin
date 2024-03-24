@@ -1,0 +1,24 @@
+@use '@sass/mixins'
+@use '@sass/variables'
+
+.advantages-list
+  &__item
+    display: flex
+    align-items: center
+    padding-bottom: 20px
+    padding-top: 20px
+    border-bottom: 1px solid variables.$dark_10
+
+    &::before
+      content: attr(data-icon)
+      background-image: variables.$primaryGradient
+      background-clip: text
+      color: transparent
+      font: 400 48px/0.85 'Material Icons'
+
+    &-text
+      margin-left: 10px
+      @include mixins.bodyText
+    
+    &-name
+      font-weight: 700
