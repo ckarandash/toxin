@@ -91,14 +91,13 @@
         font-weight: 700
         color: #ffffff
 
-      &.-current-
+      &.-current-, &.-current-.-focus-
         background-image: variables.$secondaryGradient
 
       &.-selected-
         position: relative
         background-image: linear-gradient(variables.$purple, #8ba4f9)
         
-
         &::before
           z-index: -1
           content: ''
