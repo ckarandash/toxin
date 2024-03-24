@@ -1,4 +1,4 @@
-mixin choice-field({ type, name, description="", title="", isRich=false })
+mixin choice-field({ type, name, description="", title="", isRich=false, checked=false })
   - const withDescription = description !== '';
   - const withTitle = title !== '';
   - const withText = withDescription || withTitle;
@@ -20,7 +20,7 @@ mixin choice-field({ type, name, description="", title="", isRich=false })
       - inputClass = 'choice-field__input_type_toggle';
 
   label.choice-field
-    input.choice-field__input(class=inputClass type=inputType name=name)
+    input.choice-field__input(class=inputClass type=inputType name=name checked=checked)
 
     if withText
       .choice-field__text
