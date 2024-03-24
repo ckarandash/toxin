@@ -26,9 +26,17 @@
       @include mixins.subheadingText
       text-transform: none
 
+      &:hover
+        background-color: transparent
+        background-image: linear-gradient(rgba(variables.$purple, 0.25), rgba(#8ba4f9, 0.25))
+
     &-nav--action
       svg
         display: none
+
+      &:hover
+        background-color: transparent
+        background-image: linear-gradient(rgba(variables.$purple, 0.25), rgba(#8ba4f9, 0.25))     
 
       &::before
         font-family: 'Material Icons'
@@ -138,3 +146,6 @@
       color: variables.$purple
       font: 700 functions.pxToRem(12px) / functions.pxToRem(14.6px) variables.$mainFont
       text-transform: uppercase
+
+      &:hover
+        background-color: transparent
