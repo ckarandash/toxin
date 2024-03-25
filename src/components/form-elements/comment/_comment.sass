@@ -1,0 +1,44 @@
+@use '@sass/mixins'
+@use '@sass/variables'  
+
+.comment
+  display: grid
+  // todo: test value. Remove later
+  width: 710px
+  grid-template-areas: 'avatar meta' 'likes text'
+  gap: 10px 10.5px
+  @include mixins.bodyText
+
+  &__avatar
+    grid-area: avatar
+  
+  &__image-container
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 47.67px
+    height: 48px
+    margin-bottom: 0.5px
+    border: 2px solid #ffffff
+    border-radius: 50%
+    box-shadow: 0 10px 20px variables.$dark_10
+    overflow: hidden
+
+  &__avatar-image
+    width: 49px
+    height: 49px
+
+  &__meta
+    grid-area: meta
+
+  &__user-name
+    font-weight: 700
+
+  &__likes
+    grid-area: likes
+    display: flex
+    justify-content: center
+    padding-top: 2px
+
+  &__text
+    grid-area: text

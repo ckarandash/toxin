@@ -8,5 +8,6 @@ import '@components/form-elements/btn';
 import '@components/form-elements/checkbox-list';
 import '@components/form-elements/bullet-list';
 import '@components/form-elements/advantages-list';
+import '@components/form-elements/comment';
 
 import '@components/cards/calendar';

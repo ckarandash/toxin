@@ -1,0 +1,14 @@
+include @components/form-elements/like-btn/like-btn.pug
+
+mixin comment({ text, likes, user, timestampString })
+  .comment
+    .comment__avatar
+      .comment__image-container
+        img.comment__avatar-image(src=user.avatarUrl)
+
+    .comment__meta
+      .comment__user-name=user.name
+      .comment__timestamp=timestampString
+    .comment__likes
+      +like-btn({ likesCount: likes.count, isLiked: likes.isLiked })
+    .comment__text= text

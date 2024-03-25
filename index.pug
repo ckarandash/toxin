@@ -8,6 +8,7 @@ include @components/form-elements/btn/btn.pug
 include @components/form-elements/checkbox-list/checkbox-list.pug
 include @components/form-elements/bullet-list/bullet-list.pug
 include @components/form-elements/advantages-list/advantages-list.pug
+include @components/form-elements/comment/comment.pug
 
 include @components/cards/calendar/calendar.pug
 
@@ -72,10 +73,17 @@ html(lang="en")
     //-   ]
     //- })
 
-    +advantages-list({
-      items: [
-        { materialIcon: 'insert_emoticon', name: 'Комфорт', description: 'Шумопоглощающие стены' },
-        { materialIcon: 'location_city', name: 'Удобство', description: 'Окно в каждой из спален' },
-        { materialIcon: 'whatshot', name: 'Уют', description: 'Номер оснащён камином' },
-      ]
+    //- +advantages-list({
+    //-   items: [
+    //-     { materialIcon: 'insert_emoticon', name: 'Комфорт', description: 'Шумопоглощающие стены' },
+    //-     { materialIcon: 'location_city', name: 'Удобство', description: 'Окно в каждой из спален' },
+    //-     { materialIcon: 'whatshot', name: 'Уют', description: 'Номер оснащён камином' },
+    //-   ]
+    //- })
+
+    +comment({
+      text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+      likes: { count: 12, isLiked: true },
+      user: { name: 'Мурад Сарафанов', avatarUrl: './src/assets/images/users/murad_sarafanov.jpg' },
+      timestampString: '5 дней назад',
     })
