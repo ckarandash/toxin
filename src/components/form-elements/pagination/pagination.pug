@@ -1,0 +1,14 @@
+include @components/form-elements/btn/btn.pug
+
+mixin pagination()
+  .pagination
+    .pagination__buttons
+      +btn({ label: '1', theme: 'purple', size: 'small' })
+      +btn({ label: '2', size: 'small', isThin: true })
+      +btn({ label: '3', size: 'small', isThin: true })
+      +btn({ label: '...', size: 'small', isThin: true })
+      +btn({ label: '15', size: 'small', isThin: true })
+      +btn({ label: '', size: 'small', theme: 'green', withArrow: true })
+
+    .pagination__text 1 – 12 из 100+ вариантов аренды
+      

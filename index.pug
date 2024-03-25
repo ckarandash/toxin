@@ -9,6 +9,7 @@ include @components/form-elements/checkbox-list/checkbox-list.pug
 include @components/form-elements/bullet-list/bullet-list.pug
 include @components/form-elements/advantages-list/advantages-list.pug
 include @components/form-elements/comment/comment.pug
+include @components/form-elements/pagination/pagination.pug
 
 include @components/cards/calendar/calendar.pug
 
@@ -81,9 +82,11 @@ html(lang="en")
     //-   ]
     //- })
 
-    +comment({
-      text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-      likes: { count: 12, isLiked: true },
-      user: { name: 'Мурад Сарафанов', avatarUrl: './src/assets/images/users/murad_sarafanov.jpg' },
-      timestampString: '5 дней назад',
-    })
+    //- +comment({
+    //-   text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+    //-   likes: { count: 12, isLiked: true },
+    //-   user: { name: 'Мурад Сарафанов', avatarUrl: './src/assets/images/users/murad_sarafanov.jpg' },
+    //-   timestampString: '5 дней назад',
+    //- })
+
+    +pagination()
