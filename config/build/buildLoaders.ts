@@ -15,6 +15,10 @@ const buildLoaders = (): ModuleOptions['rules'] => {
       test: /\.(css|sass|scss)$/,
       use: ['css-loader', 'sass-loader'],
     },
+    {
+      test: /\.(jpg|jpeg|png)$/,
+      type: 'asset/resource',
+    },
   ];
 
   return loaders;
