@@ -12,3 +12,4 @@ import '@components/form-elements/comment';
 import '@components/form-elements/pagination';
 
 import '@components/cards/calendar';
+import '@components/cards/login-form';

@@ -1,0 +1,19 @@
+include @components/form-elements/text-field/text-field.pug
+include @components/form-elements/btn/btn.pug
+
+mixin login-form({ headingTag, formName, formAction="test" })
+  form.login-form(name=formName method="POST" action=formAction )
+    #{headingTag}.login-form__heading Войти
+    .login-form__email-field
+      +text-field({ placeholder: 'Email', name: 'email', required: true })
+
+    .login-form__password-field
+      +text-field({ placeholder: 'Пароль', name: 'password', required: true })
+
+    .login-form__submit-button
+      +btn({ label: 'Войти', theme: 'purple', withArrow: true, size: 'max', isSubmit: true })
+
+    .login-form__no-account
+      .login-form__no-account-text Нет аккаунта на Toxin?
+      .login-form__create-button
+        +btn({ label: 'Создать', theme: 'white', size: 'average' })
