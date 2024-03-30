@@ -1,4 +1,17 @@
-mixin text-field({ placeholder="", isMasked=false, hasArrow=false })
+mixin text-field(options = {})
+  - 
+    const {
+      name = null,
+      id = null,
+      placeholder = null,
+      isMasked = false,
+      hasArrow = false,
+      value = null,
+      disabled = false,
+      readonly = false,
+      required = false,
+    } = options
+
   - const inputClass = 'text-field__input'
   - const classes = [inputClass]
 
@@ -11,7 +24,17 @@ mixin text-field({ placeholder="", isMasked=false, hasArrow=false })
   - const fieldPlaceholder = isMasked ? 'ДД.ММ.ГГГГ' : placeholder
 
   .text-field
-    input(class=classes type="text" placeholder=fieldPlaceholder)
+    input(
+      class=classes
+      name=name
+      type="text"
+      value=value
+      placeholder=fieldPlaceholder
+      id=id
+      disabled=disabled
+      readonly=readonly
+      required=required
+    )
 
     if hasArrow
       .text-field__arrow arrow_forward
