@@ -1,4 +1,15 @@
-mixin btn({ label, theme='plain', isThin=false, withArrow=false, size='average', disabled=false })
+mixin btn(options = {})
+  -
+    const {
+      label,
+      theme = 'plain',
+      isThin = false,
+      withArrow = false,
+      size = 'average',
+      disabled = false,
+      isSubmit = false,
+    } = options;
+
   -
     let themeClass = '';
     let disabledClasses = ['btn_disabled'];
@@ -47,5 +58,6 @@ mixin btn({ label, theme='plain', isThin=false, withArrow=false, size='average',
     class=[themeClass, sizeClass, thinClass,
       arrowClasses, disabled ? disabledClasses : []]
     disabled=disabled
+    type=isSubmit ? 'submit' : 'button'
   )
     span.btn__label= label
