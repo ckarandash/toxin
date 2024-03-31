@@ -3,7 +3,6 @@
 @use '@sass/functions'
 
 .btn
-  // todo: test value. Remove later
   position: relative
   display: flex
   justify-content: center
@@ -19,9 +18,11 @@
     height: 40px
 
   &_size_average
+    height: 44px
     width: 99px
 
   &_size_max
+    height: 44px
     width: 100%
 
   &_theme_purple
@@ -45,7 +46,7 @@
       background-color: #ffffff
       border: 0px solid transparent
       border-radius: 22px
-      transform: translate(-50%, -49%)
+      transform: translate(-50%, -50%)
 
     &_disabled
       background-image: variables.$fadingPrimaryGradient
@@ -93,4 +94,5 @@
     position: relative
     z-index: 10
     flex-grow: 1
+    padding-top: 1px
     text-align: center
