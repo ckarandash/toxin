@@ -1,0 +1,56 @@
+include @components/form-elements/text-field/text-field.pug
+
+mixin registration-form({ headingTag, formName, formAction="test" })
+  form.registration-form(name=formName method="POST" action=formAction)
+    #{headingTag}.registration-form__heading Регистрация аккаунта
+    label.registration-form__user-fields
+      .registration-form__name-field
+        +text-field({ name: 'user_name', placeholder: 'Имя' })
+
+      .registration-form__surname-field
+        +text-field({ name: 'user_surname', placeholder: 'Фамилия' })
+
+      .registration-form__gender-fields
+        .registration-form__male-field
+          +choice-field({ type: 'radio', name: 'gender', title: 'Мужчина', value: 'male' })
+
+        .registration-form__female-field
+          +choice-field({ type: 'radio', name: 'gender', title: 'Женщина', value: 'female' })
+      
+    label.registration-form__birthday
+      .registration-form__birthday-label Дата рождения
+      .registration-form__birthday-field
+        +text-field({ name: 'date_of_birth', isMasked: true })
+
+    label.registration-form__login-fields
+      .registration-form__login-label Данные для входа в сервис
+      .registration-form__email-field
+        +text-field({ name: 'email', placeholder: 'Email' })
+
+      .registration-form__password-field
+        +text-field({ name: 'password', placeholder: 'Пароль' })
+      
+      .registration-form__subscription-field
+        +choice-field({
+          type: 'toggle',
+          name: 'subscription',
+          title: 'Получать спецпредложения',
+          value: 'subscribed',
+        })
+
+    .registration-form__submit-button
+      +btn({
+        theme: 'purple',
+        size: 'max',
+        withArrow: true,
+        label: 'Перейти к оплате',
+        isSubmit: true,
+      })
+
+    .registration-form__login-section
+      .registration-form__login-text Уже есть аккаунт на Toxin
+      .registration-form__login-button
+        +btn({
+          theme: 'white',
+          label: 'войти',
+        })

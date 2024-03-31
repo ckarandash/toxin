@@ -1,0 +1,72 @@
+@use '@sass/variables'
+@use '@sass/mixins'
+
+.registration-form
+  // todo: test values. Remove later
+  position: absolute
+  top: 50px
+  left: 800px
+  width: 380px
+  padding: 40px 29px 29px
+  background-color: variables.$mainBackgroundColor
+  border: 1px solid rgba(0, 0, 0, 0.12)
+  border-radius: 4px
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2)
+
+  &__heading
+    @include mixins.topHeadingText
+
+  &__user-fields
+    display: block
+    margin-top: 20px
+
+  &__surname-field
+    margin-top: 10px
+
+  &__gender-fields
+    display: flex
+    margin-top: 10px
+
+  &__male-field
+    margin-right: 20px
+
+  &__birthday
+    display: block
+    margin-top: 24.56px
+
+  &__birthday-label
+    @include mixins.labelText
+
+  &__birthday-field
+    margin-top: 4.5px
+
+  &__login-fields
+    display: block
+    margin-top: 22px
+
+  &__login-label
+    @include mixins.labelText
+
+  &__email-field
+    margin-top: 3.7px
+
+  &__password-field
+    margin-top: 10px
+
+  &__subscription-field
+    margin-top: 9.5px
+
+  &__submit-button
+    margin-top: 24px
+
+  &__login-section
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-top: 28px
+
+  &__login-text
+    color: #000000
+
+  &__login-button
+    padding-top: 2.5px
