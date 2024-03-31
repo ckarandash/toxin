@@ -13,3 +13,4 @@ import '@components/form-elements/pagination';
 
 import '@components/cards/calendar';
 import '@components/cards/login-form';
+import '@components/cards/room-card';

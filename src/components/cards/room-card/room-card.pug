@@ -1,0 +1,44 @@
+include @components/form-elements/rate-btn/rate-btn.pug
+
+mixin room-card(options)
+  -
+    const {
+      number,
+      price,
+      reviewsCount,
+      images,
+      rate = { average: 0, user: null },
+      isLux = false,
+    } = options;
+
+  .room-card
+    .room-card__pictures
+      button.room-card__control-btn.room-card__prev-picture-btn.js-room-card__prev-picture-btn
+      button.room-card__control-btn.room-card__next-picture-btn.js-room-card__next-picture-btn
+      .room-card__picture-buttons
+        each image in images
+          button.room-card__picture-button.js-room-card__picture-button(type="button")
+      .room-card__pictures-carousel.js-room-card__pictures-carousel
+        each image in images
+          img.room-card__image.js-room-card__image(src=image.src alt="фото номера")
+    .room-card__info
+      .room-card__info-top
+        .room-card__room-info
+          .room-card__room-number
+            span.room-card__number-sign №
+            =' '
+            span.room-card__number-value= number
+            if isLux
+              span.room-card__lux #{' люкс'}
+        .room-card__price-info
+          span.room-card__price-value #{price}₽
+          =' '
+          span.room-card__price-label в сутки
+      .room-card__info-bottom
+        .room-card__rate
+          +rate-btn({ averageRate: rate.average, userRate: rate.user })
+
+        .room-card__reviews
+          span.room-card__reviews-count= reviewsCount
+          =' '
+          span.room-card__reviews-label Отзывов

@@ -1,0 +1,143 @@
+@use '@sass/variables'
+@use '@sass/functions'
+
+.room-card
+  width: 270px
+  background-color: variables.$mainBackgroundColor
+  box-shadow: 0 10px 20px variables.$dark_05
+  border-radius: variables.$mainBorderRadius
+  overflow: hidden
+
+  &__pictures
+    overflow: hidden
+    position: relative
+    height: 151.38px
+    background-color: black
+
+    &:hover
+      .room-card__control-btn
+        opacity: 1
+
+  &__control-btn
+    opacity: 0
+    z-index: 10
+    position: absolute
+    top: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 44px
+    height: 44px
+    background-color: transparent
+    border: none
+    color: #ffffff
+    font: 400 24px / 24px 'Material Icons'
+    transition: all 0.3s ease
+    cursor: pointer
+
+    &::before
+      content: 'expand_more'
+
+  &__prev-picture-btn
+    left: 0
+    transform: translateY(-50%) rotate(90deg)
+
+  &__next-picture-btn
+    right: 0
+    transform: translateY(-50%) rotate(-90deg)
+    
+  &__picture-buttons
+    z-index: 10
+    position: absolute
+    right: 15px
+    bottom: 14px
+
+  &__picture-button
+    display: inline-block
+    width: 7.5px
+    height: 7.5px
+    margin-right: 3.75px
+    border: 1px solid #ffffff
+    border-radius: 50%
+    background-color: transparent
+    box-shadow: 0 5px 5px variables.$dark_30
+
+    &:last-child
+      margin-right: 0
+
+    &_active
+      background-color: #ffffff
+  
+  &__pictures-carousel
+    height: 100%
+    width: 400%
+
+  &__info
+    padding: 20px 17px 15px 20px
+  
+  &__info-top
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-bottom: 10px
+
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      bottom: -2px
+      height: 1px
+      background-color: variables.$dark_10
+      width: calc(100% - 3px)
+
+  &__room-number
+    color: variables.$dark_100
+    font-weight: 700
+    
+  &__number-sign
+    font-size: functions.pxToRem(14px)
+    line-height: functions.pxToRem(17.1px)
+
+  &__number-value
+    font-size: functions.pxToRem(19px)
+    line-height: functions.pxToRem(23.2px)
+
+  &__price-info
+    padding-top: 4px
+    line-height: functions.pxToRem(18px)
+    color: variables.$dark_50
+
+  &__price-value
+    font-weight: 700
+    font-size: functions.pxToRem(14px)
+
+  &__price-label
+    font-size: 12px
+
+  &__lux
+    position: relative
+    top: 0.5px
+    display: inline-block
+    margin-left: 1.5px
+    text-transform: uppercase
+    color: variables.$purple
+    font-weight: 700
+    font-size: functions.pxToRem(12px)
+    line-height: functions.pxToRem(14.6px)
+
+  &__info-bottom
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-top: 10px
+
+  &__reviews
+    padding-right: 3px
+    padding-bottom: 2px
+    color: variables.$dark_50
+    font-size: functions.pxToRem(14px)
+    line-height: functions.pxToRem(18px)
+
+  &__reviews-count
+    font-weight: 700
