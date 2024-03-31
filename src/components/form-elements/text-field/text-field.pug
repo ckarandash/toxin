@@ -16,7 +16,7 @@ mixin text-field(options = {})
   - const classes = [inputClass]
 
   if isMasked
-    - classes.push(`js-${inputClass}_masked`)
+    - classes.push(`${inputClass}_masked`, `js-${inputClass}_masked`)
 
   if hasArrow
     - classes.push(`${inputClass}_with_arrow`)

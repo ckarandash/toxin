@@ -4,6 +4,7 @@
 .text-field
   position: relative
   display: flex
+  height: 44px
   border: variables.$staticBorder
   border-radius: variables.$mainBorderRadius
   background-color: variables.$mainBackgroundColor
@@ -14,7 +15,8 @@
 
   &__input
     width: 100%
-    padding: 12px 15px 12.72px 15px
+    height: 100%
+    padding: 12.5px 15px 12.72px 14.5px
     margin-right: 8px
     font-family: variables.$mainFont
     font-size: functions.pxToRem(14px)
@@ -25,6 +27,10 @@
     color: variables.$dark_25
     text-overflow: ellipsis
     transition: all 0.2s ease
+
+    &_masked
+      padding-top: 11.5px
+      letter-spacing: 0
 
     &_with_arrow
       padding-right: 0
