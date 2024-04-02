@@ -1,0 +1,13 @@
+include @components/form-elements/date-dropdown/date-dropdown.pug
+include @components/cards/calendar/calendar.pug
+
+mixin period-dropdowns({ start, end })
+  .period-dropdowns.js-period-dropdowns
+    .period-dropdowns__start-date.js-period-dropdowns__start-date
+      +date-dropdown({ label: start.label, id: start.id })
+
+    .period-dropdowns__end-date.js-period-dropdowns__end-date
+      +date-dropdown({ label: end.label, id: end.id })
+
+    .period-dropdowns__calendar.js-period-dropdowns__calendar
+      +calendar()

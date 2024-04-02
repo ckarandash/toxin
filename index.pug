@@ -11,6 +11,7 @@ include @components/form-elements/advantages-list/advantages-list.pug
 include @components/form-elements/comment/comment.pug
 include @components/form-elements/pagination/pagination.pug
 include @components/form-elements/date-dropdown/date-dropdown.pug
+include @components/form-elements/period-dropdowns/period-dropdowns.pug
 
 include @components/cards/calendar/calendar.pug
 include @components/cards/login-form/login-form.pug
@@ -111,4 +112,5 @@ html(lang="en")
 
     //- +registration-form({ headingTag: 'h1' })
 
-    +date-dropdown({ label: 'прибытие', id: 's' })
+    //- +date-dropdown({ label: 'прибытие', id: 's' })
+    +period-dropdowns({ start: { label: 'при', id: 'arr' }, end: { label: 'вы', id: 'dep' } })
