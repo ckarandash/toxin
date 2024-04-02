@@ -1,15 +1,9 @@
 import AirDatepicker from 'air-datepicker';
-import localeRu from 'air-datepicker/locale/ru';
 
 class Calendar {
-  constructor(rootElement) {
+  constructor(rootElement, options) {
     this._$datepicker = new AirDatepicker(rootElement, {
-      visible: true,
-      inline: true,
-      dateFormat: 'd MMM',
-      multipleDatesSeparator: '-',
-      locale: localeRu,
-      range: true,
+      ...options,
       navTitles: {
         days: 'MMMM yyyy',
       },
@@ -21,6 +15,10 @@ class Calendar {
 
     // this._$datepicker.setViewDate(new Date(2019, 7, 8));
     // this._$datepicker.setCurrentView(new Date(2019, 7, 8));
+  }
+
+  getDatepicker() {
+    return this._$datepicker;
   }
 
   _buildApplyButton() {
