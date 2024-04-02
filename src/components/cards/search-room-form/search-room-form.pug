@@ -1,0 +1,28 @@
+include @components/form-elements/period-dropdowns/period-dropdowns.pug
+include @components/form-elements/dropdown/dropdown.pug
+include @components/form-elements/btn/btn.pug
+
+mixin search-room-form({ headingTag, periodDropdownsIds, })
+  form.search-room-form
+    #{headingTag}.search-room-form__heading Найдём номера под ваши пожелания
+    .search-room-form__dates
+      +period-dropdowns({
+        start: { label: 'прибытие', id: periodDropdownsIds.start },
+        end: { label: 'выезд', id: periodDropdownsIds.end },
+      })
+
+    .search-room-form__dropdown
+      +dropdown({
+        label: 'гости',
+        question: 'Сколько гостей',
+        items: [
+          { name: 'adults', word: 'взрослый', label: 'взрослые', initialCount: 0, },
+          { name: 'children', word: 'ребенок', label: 'дети', initialCount: 0, },
+          { name: 'babies', word: 'младенец', label: 'младенцы', initialCount: 0, },
+        ],
+        withClear: true,
+        withApply: true,
+      })
+    .search-room-form__submit-button
+      +btn({ label: 'подобрать номер', theme: 'purple',
+        withArrow: true, size: 'max', isSubmit: true })

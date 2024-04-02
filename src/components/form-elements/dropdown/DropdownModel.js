@@ -9,7 +9,7 @@ class DropdownModel extends Observer {
     this._defaultText = text;
     this._state = {
       items,
-      isOpened: true,
+      isOpened,
       text,
     };
   }
