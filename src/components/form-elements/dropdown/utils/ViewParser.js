@@ -7,7 +7,7 @@ class ViewParser {
     return {
       isOpened: this._parseDropdownOpened(),
       items: this._parseItemsNameCountArray(),
-      label: this._parseLabel(),
+      text: this._parseText(),
     };
   }
 
@@ -30,9 +30,9 @@ class ViewParser {
     return this._dropdownElement.classList.contains('dropdown_opened');
   }
 
-  _parseLabel() {
-    const labelElement = this._dropdownElement.querySelector('.js-dropdown__label');
-    return labelElement.textContent;
+  _parseText() {
+    const textElement = this._dropdownElement.querySelector('.js-dropdown__text');
+    return textElement.textContent;
   }
 }
 

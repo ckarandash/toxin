@@ -30,12 +30,12 @@ class DropdownPresenter {
     switch (buttonType) {
       case 'minus':
         this._dropdownModel.changeItemCount(itemName, 'reduce');
-        this._dropdownModel.updateLabel();
+        this._dropdownModel.updateText();
         break;
 
       case 'plus':
         this._dropdownModel.changeItemCount(itemName, 'increase');
-        this._dropdownModel.updateLabel();
+        this._dropdownModel.updateText();
         break;
 
       default:
@@ -45,7 +45,7 @@ class DropdownPresenter {
 
   _handleViewClearButtonClick() {
     this._dropdownModel.setMinimumCounts();
-    this._dropdownModel.updateLabel();
+    this._dropdownModel.updateText();
   }
 
   _handleViewApplyButtonClick() {

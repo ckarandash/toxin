@@ -8,7 +8,7 @@ class ViewRenderer {
     this._renderOpening(options.isOpened);
     this._renderCounts(options.items);
     this._renderButtons(options.items);
-    this._renderLabel(options.label);
+    this._renderText(options.text);
   }
 
   _renderOpening(isOpened) {
@@ -40,9 +40,9 @@ class ViewRenderer {
     });
   }
 
-  _renderLabel(label) {
-    const labelElement = this._dropdownElement.querySelector('.js-dropdown__label');
-    labelElement.textContent = label;
+  _renderText(text) {
+    const textElement = this._dropdownElement.querySelector('.js-dropdown__text');
+    textElement.textContent = text;
   }
 }
 

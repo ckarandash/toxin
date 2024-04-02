@@ -22,7 +22,7 @@ class Dropdown {
     return {
       items: modelItems,
       isOpened: viewInitialState.isOpened,
-      label: viewInitialState.label,
+      text: viewInitialState.text,
     };
   }
 }

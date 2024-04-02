@@ -3,14 +3,14 @@ import throwUnreachable from '../../../js/throwUnreachable';
 import getCountOfWordString from './utils/getCountOfWordString';
 
 class DropdownModel extends Observer {
-  constructor({ items = [], isOpened = false, label } = {}) {
+  constructor({ items = [], isOpened = false, text } = {}) {
     super(DropdownModel.EVENTS);
 
-    this._defaultLabel = label;
+    this._defaultText = text;
     this._state = {
       items,
       isOpened: true,
-      label,
+      text,
     };
   }
 
@@ -63,36 +63,36 @@ class DropdownModel extends Observer {
     this.notify(this._events.MODEL_UPDATED);
   }
 
-  updateLabel() {
-    this._state.label = this._buildLabel();
+  updateText() {
+    this._state.text = this._buildText();
     this.notify(DropdownModel.EVENTS.MODEL_UPDATED);
   }
 
-  _buildFullLabel() {
+  _buildFullText() {
     const areAllItemsAtMinimum = !this._state.items.find(
       ({ count }) => count !== DropdownModel.MIN_COUNT,
     );
 
     if (areAllItemsAtMinimum) {
-      return this._defaultLabel;
+      return this._defaultText;
     }
 
     const wordWithCountStrings = this._state.items
       .filter(({ count }) => count !== 0)
       .map((item) => getCountOfWordString(item.count, item.word));
 
-    const label = wordWithCountStrings.join(', ');
-    return label;
+    const text = wordWithCountStrings.join(', ');
+    return text;
   }
 
-  _buildLabel() {
-    const fullLabel = this._buildFullLabel();
-    const cutLabel = `${fullLabel.slice(0, DropdownModel.LABEL_MAX_LENGTH)}...`;
+  _buildText() {
+    const fullText = this._buildFullText();
+    const cutText = `${fullText.slice(0, DropdownModel.TEXT_MAX_LENGTH)}...`;
 
-    const isLabelTooLong = fullLabel.length >= DropdownModel.LABEL_MAX_LENGTH;
-    const potentiallyCutLabel = isLabelTooLong ? cutLabel : fullLabel;
+    const isTextTooLong = fullText.length >= DropdownModel.TEXT_MAX_LENGTH;
+    const potentiallyCutText = isTextTooLong ? cutText : fullText;
 
-    return potentiallyCutLabel;
+    return potentiallyCutText;
   }
 }
 
@@ -100,6 +100,6 @@ DropdownModel.MIN_COUNT = 0;
 DropdownModel.EVENTS = {
   MODEL_UPDATED: 'MODEL_UPDATED',
 };
-DropdownModel.LABEL_MAX_LENGTH = 20;
+DropdownModel.TEXT_MAX_LENGTH = 20;
 
 export default DropdownModel;
