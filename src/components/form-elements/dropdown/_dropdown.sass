@@ -2,6 +2,7 @@
 @use '@sass/mixins'
 
 .dropdown
+  position: relative
   background-color: variables.$mainBackgroundColor
 
   &_opened
@@ -45,7 +46,10 @@
     overflow: hidden
 
   &__body
+    position: absolute
     display: none
+    width: 100%
+    background-color: variables.$mainBackgroundColor
     border: variables.$staticBorder
     border-radius: 0 0 4px 4px
     border-top: none
