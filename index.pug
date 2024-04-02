@@ -10,6 +10,7 @@ include @components/form-elements/bullet-list/bullet-list.pug
 include @components/form-elements/advantages-list/advantages-list.pug
 include @components/form-elements/comment/comment.pug
 include @components/form-elements/pagination/pagination.pug
+include @components/form-elements/date-dropdown/date-dropdown.pug
 
 include @components/cards/calendar/calendar.pug
 include @components/cards/login-form/login-form.pug
@@ -108,4 +109,6 @@ html(lang="en")
     //-     { src: './src/assets/images/rooms/room-888.jpg' },
     //-   ] })
 
-    +registration-form({ headingTag: 'h1' })
+    //- +registration-form({ headingTag: 'h1' })
+
+    +date-dropdown({ label: 'прибытие', id: 's' })

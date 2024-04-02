@@ -1,0 +1,8 @@
+include @components/cards/calendar/calendar.pug
+
+mixin date-dropdown({ label, id })
+  .date-dropdown.js-date-dropdown
+    label.date-dropdown__label(for=id)= label
+    .date-dropdown__field
+      input.date-dropdown__input.js-date-dropdown__input(placeholder='ДД.ММ.ГГГГ' id=id)
+      button.date-dropdown__open-button.js-date-dropdown__open-button
