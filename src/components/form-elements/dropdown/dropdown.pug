@@ -1,7 +1,10 @@
-mixin dropdown({ items=[], question="", withClear=false, withApply=false })
+mixin dropdown({ label='', items=[], question="", withClear=false, withApply=false })
   - const withButtons = withClear || withApply
+  - const withLabel = label.trim().length > 0
 
   .dropdown.js-dropdown
+    if withLabel
+      .dropdown__label= label
     .dropdown__header.js-dropdown__header
       .dropdown__question.js-dropdown__text #{question}
     .dropdown__body
