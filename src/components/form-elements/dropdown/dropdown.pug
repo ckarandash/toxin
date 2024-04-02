@@ -13,13 +13,19 @@ mixin dropdown({ label='', items=[], question="", withClear=false, withApply=fal
           li.dropdown__item.js-dropdown__item(data-name=item.name data-word=item.word)
             span.dropdown__item-label= item.label
             .dropdown__item-controls
-              button.dropdown__control-btn.dropdown__item-minus.js-dropdown__item-minus -
+              button.dropdown__control-btn.dropdown__item-minus.js-dropdown__item-minus(
+                type="button"
+              ) -
               .dropdown__item-count.js-dropdown__item-count #{item.initialCount}
-              button.dropdown__control-btn.dropdown__item-plus.js-dropdown__item-plus +
+              button.dropdown__control-btn.dropdown__item-plus.js-dropdown__item-plus(
+                type="button"
+              ) +
       if withButtons
         .dropdown__buttons
           if withClear
-            button.dropdown__btn.dropdown__clear-btn.js-dropdown__clear-btn очистить
+            button.dropdown__btn.dropdown__clear-btn.js-dropdown__clear-btn(
+              type="button"
+            ) очистить
 
           if withApply
             - const applyBtnClasses = ['dropdown__btn', 'dropdown__apply-btn', 'js-dropdown__apply-btn'];
@@ -27,4 +33,4 @@ mixin dropdown({ label='', items=[], question="", withClear=false, withApply=fal
             if !withClear
               - applyBtnClasses.push('dropdown__apply-btn_pushed_right');
 
-            button(class=applyBtnClasses) применить
+            button(class=applyBtnClasses type="button") применить
