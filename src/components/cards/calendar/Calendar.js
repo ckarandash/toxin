@@ -28,6 +28,7 @@ class Calendar {
       onClick: (dp) => {
         this._onApply();
       },
+      attrs: { type: 'button' },
     };
 
     return applyButton;
@@ -40,6 +41,7 @@ class Calendar {
       onClick: (dp) => {
         this._onClear();
       },
+      attrs: { type: 'button' },
     };
 
     return clearButton;
