@@ -3,8 +3,8 @@ include @components/form-elements/dropdown/dropdown.pug
 include @components/form-elements/btn/btn.pug
 include ./price-item/price-item.pug
 
-mixin book-form({ roomNumberTag, roomNumber, isLux, pricePerDay, periodDropdownsIds })
-  form.book-form
+mixin book-form({ roomNumberTag, roomNumber, isLux, pricePerDay, periodDropdownsIds, formName, formAction="test" })
+  form.book-form(name=formName method="POST" action=formAction)
     .book-form__room-info
       .book-form__room-left-info
         .book-form__room-number
@@ -51,4 +51,4 @@ mixin book-form({ roomNumberTag, roomNumber, isLux, pricePerDay, periodDropdowns
       .book-form__total-price 38 081₽
 
     .book-form__submit-button
-      +btn({ theme: 'purple', withArrow: true, label: 'Забронировать', size: 'max' })
+      +btn({ theme: 'purple', withArrow: true, label: 'Забронировать', size: 'max', isSubmit: true })
