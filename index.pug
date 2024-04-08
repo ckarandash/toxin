@@ -18,6 +18,7 @@ include @components/cards/login-form/login-form.pug
 include @components/cards/room-card/room-card.pug
 include @components/cards/registration-form/registration-form.pug
 include @components/cards/search-room-form/search-room-form.pug
+include @components/cards/book-form/book-form.pug
 
 doctype html
 html(lang="en")
@@ -116,10 +117,18 @@ html(lang="en")
     //- +date-dropdown({ label: 'прибытие', id: 's' })
     //- +period-dropdowns({ start: { label: 'при', id: 'arr' }, end: { label: 'вы', id: 'dep' } })
 
-    +search-room-form({
-      headingTag: 'h1',
-      periodDropdownsIds: {
-        start: 'arrival',
-        end: 'department',
-      },
+    //- +search-room-form({
+    //-   headingTag: 'h1',
+    //-   periodDropdownsIds: {
+    //-     start: 'arrival',
+    //-     end: 'department',
+    //-   },
+    //- })
+
+    +book-form({
+      roomNumberTag: 'div',
+      roomNumber: 888,
+      isLux: true,
+      pricePerDay: '9 990',
+      periodDropdownsIds: { start: 'arrival', end: 'department' },
     })

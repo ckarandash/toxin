@@ -1,0 +1,7 @@
+mixin price-item({ text, cost, withHint })
+  .price-item
+    .price-item__description
+      .price-item__text= text
+      if withHint
+        button.price-item__hint(type="button")
+    .price-item__cost #{cost}₽

@@ -1,0 +1,34 @@
+@use '@sass/variables'
+@use '@sass/mixins'
+@use '@sass/functions'
+
+.price-item
+  display: flex
+  justify-content: space-between
+  @include mixins.bodyText
+  line-height: functions.pxToRem(18px)
+
+  &__description
+    display: flex
+
+  &__text
+    max-width: 214px
+
+  &__hint
+    width: 20px
+    height: 20px
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-left: 5px
+    border: 1px solid variables.$dark_25
+    border-radius: 50%
+    background-color: transparent
+  
+    &::before
+      content: 'i'
+      margin-left: 1px
+      color: variables.$dark_25
+      font-size: 12px
+      line-height: 14px
+      font-weight: 700

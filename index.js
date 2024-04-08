@@ -18,3 +18,4 @@ import '@components/cards/login-form';
 import '@components/cards/room-card';
 import '@components/cards/registration-form';
 import '@components/cards/search-room-form';
+import '@components/cards/book-form';

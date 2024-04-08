@@ -1,0 +1,54 @@
+include @components/form-elements/period-dropdowns/period-dropdowns.pug
+include @components/form-elements/dropdown/dropdown.pug
+include @components/form-elements/btn/btn.pug
+include ./price-item/price-item.pug
+
+mixin book-form({ roomNumberTag, roomNumber, isLux, pricePerDay, periodDropdownsIds })
+  form.book-form
+    .book-form__room-info
+      .book-form__room-left-info
+        .book-form__room-number
+          span.book-form__number-sign №
+          =' '
+          span.book-form__number-value= roomNumber
+        if isLux
+          .book-form__room-lux люкс
+
+      .book-form__room-right-info
+        .book-form__room-price
+          span.book-form__price-value #{pricePerDay}₽
+          =' '
+          span.book-form__price-text в сутки
+    .book-form__period-dropdowns
+      +period-dropdowns({
+        start: { label: 'прибытие', id: periodDropdownsIds.start },
+        end: { label: 'выезд', id: periodDropdownsIds.end },
+      })
+
+    .book-form__guests-dropdown
+      +dropdown({
+        label: 'гости',
+        question: 'Сколько гостей',
+        items: [
+          { name: 'adults', word: 'взрослый', label: 'взрослые', initialCount: 0, },
+          { name: 'children', word: 'ребенок', label: 'дети', initialCount: 0, },
+          { name: 'babies', word: 'младенец', label: 'младенцы', initialCount: 0, },
+        ],
+        withClear: true,
+        withApply: true,
+      })
+
+    ul.book-form__price-list
+      li.book-form__price-item
+        +price-item({ text: '9 990₽ х 4 суток', cost: '39 960' })
+      li.book-form__price-item
+        +price-item({ text: 'Сбор за услуги: скидка 2 179₽', cost: '0', withHint: true })
+      li.book-form__price-item
+        +price-item({ text: 'Сбор за дополнительные услуги', cost: '300', withHint: true })
+
+    .book-form__total
+      .book-form__total-label Итого
+      .book-form__total-price 38 081₽
+
+    .book-form__submit-button
+      +btn({ theme: 'purple', withArrow: true, label: 'Забронировать', size: 'max' })
