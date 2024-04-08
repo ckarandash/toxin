@@ -3,7 +3,18 @@ include @components/form-elements/dropdown/dropdown.pug
 include @components/form-elements/btn/btn.pug
 include ./price-item/price-item.pug
 
-mixin book-form({ roomNumberTag, roomNumber, isLux, pricePerDay, periodDropdownsIds, formName, formAction="test" })
+mixin book-form(options = {})
+  - 
+    const {
+      roomNumberTag,
+      roomNumber,
+      isLux,
+      pricePerDay,
+      periodDropdownsIds,
+      formName,
+      formAction="test",
+    } = options
+
   form.book-form(name=formName method="POST" action=formAction)
     .book-form__room-info
       .book-form__room-left-info
