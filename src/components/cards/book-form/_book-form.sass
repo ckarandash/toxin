@@ -11,7 +11,7 @@
   left: 500px
   width: 380px
   background-color: variables.$mainBackgroundColor
-  padding: 41px 30px 30px
+  padding: 41px 29px 30px
   border: 1px solid rgba(0, 0, 0, 0.12)
   border-radius: variables.$mainBorderRadius
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2)
@@ -37,16 +37,20 @@
     @include mixins.topHeadingText()
 
   &__room-lux
-    margin-left: 8px
+    margin-left: 8.5px
     @include mixins.labelText()
     color: variables.$purple
 
   &__room-price
     display: flex
+    align-items: baseline
+    padding-top: 6px
+    margin-right: 1px
     color: variables.$secondaryTextColor
     line-height: functions.pxToRem(18px)
 
   &__price-value
+    margin-right: 3.5px
     font-weight: 700
     font-size: functions.pxToRem(14px)
 
@@ -54,13 +58,14 @@
     font-size: functions.pxToRem(12px)
 
   &__period-dropdowns
-    margin-top: 19px
-
-  &__guests-dropdown
     margin-top: 20px
 
+  &__guests-dropdown
+    margin-top: 21px
+
   &__price-list
-    margin-top: 20.56px
+    margin-left: 1px
+    margin-top: 21.3px
 
   &__price-item
     margin-top: 15px
@@ -70,9 +75,25 @@
 
   &__total
     display: flex
-    justify-content: space-between
-    margin-top: 30px
+    margin-top: 29px
     @include mixins.subheadingText()
 
+  &__total-label
+    display: flex
+    flex-grow: 1
+    align-items: baseline
+    margin-left: 1px
+
+    &::after
+      position: relative
+      left: 4.4px
+      top: 1px
+      content: ''
+      width: 100%
+      border-bottom: 1px dotted gray
+
+  &__total-price
+    flex-shrink: 0
+
   &__submit-button
-      margin-top: 20px
+    margin-top: 21px
