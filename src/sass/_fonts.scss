@@ -1,3 +1,5 @@
+// @use '../assets/fonts/FontAwesome/demo-files/'
+
 @font-face {
   font-family: 'Montserrat';
   font-display: swap;
@@ -37,4 +39,15 @@
     url('../assets/fonts/MaterialIcons/MaterialIcons-Regular.woff') format('woff'),
     url('../assets/fonts/MaterialIcons/MaterialIcons-Regular.svg#MaterialIcons-Regular') format('svg'),
     url('../assets/fonts/MaterialIcons/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Font Awesome Brands';
+  font-display: swap;
+  font-weight: 400;
+  src:
+    url('../assets/fonts/FontAwesomeBrands/fa-brands-400.woff2') format('woff2'),
+    url('../assets/fonts/FontAwesomeBrands/fa-brands-400.woff') format('woff'),
+    url('../assets/fonts/FontAwesomeBrands/fa-brands-400.svg') format('svg'),
+    url('../assets/fonts/FontAwesomeBrands/fa-brands-400.ttf') format('truetype');
 }
