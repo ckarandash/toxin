@@ -30,6 +30,7 @@ const buildConfig = () => {
       alias: {
         '@sass': path.resolve('src', 'sass'),
         '@components': path.resolve('src', 'components'),
+        '@assets': path.resolve('src', 'assets'),
       },
     },
   };

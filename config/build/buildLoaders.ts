@@ -16,7 +16,7 @@ const buildLoaders = (): ModuleOptions['rules'] => {
       use: ['css-loader', 'sass-loader'],
     },
     {
-      test: /\.(jpg|jpeg|png)$/,
+      test: /\.(jpg|jpeg|png|svg)$/,
       type: 'asset/resource',
     },
   ];
