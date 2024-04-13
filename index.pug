@@ -20,6 +20,8 @@ include @components/cards/registration-form/registration-form.pug
 include @components/cards/search-room-form/search-room-form.pug
 include @components/cards/book-form/book-form.pug
 
+include @components/logo/logo.pug
+
 doctype html
 html(lang="en")
   head
@@ -125,10 +127,12 @@ html(lang="en")
     //-   },
     //- })
 
-    +book-form({
-      roomNumberTag: 'div',
-      roomNumber: 888,
-      isLux: true,
-      pricePerDay: '9 990',
-      periodDropdownsIds: { start: 'arrival', end: 'department' },
-    })
+    //- +book-form({
+    //-   roomNumberTag: 'div',
+    //-   roomNumber: 888,
+    //-   isLux: true,
+    //-   pricePerDay: '9 990',
+    //-   periodDropdownsIds: { start: 'arrival', end: 'department' },
+    //- })
+
+    +logo()
