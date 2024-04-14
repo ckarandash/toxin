@@ -1,0 +1,26 @@
+@use '@sass/variables'
+  
+.socials
+  display: flex
+
+  &__item
+    margin-right: 20px
+    background-image: variables.$primaryGradient
+    background-clip: text
+    font: 400 24px / 1 'Font Awesome Brands'
+    color: transparent
+
+    &:last-child
+      margin-right: 0
+
+  &__twitter
+    &::before
+      content: '\f099'
+      
+  &__facebook
+    &::before
+      content: '\f082'
+
+  &__instagram
+    &::before
+      content: '\f16d'
