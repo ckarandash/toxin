@@ -1,0 +1,15 @@
+include @components/logo/logo.pug
+include @components/copyright/copyright.pug
+include @components/socials/socials.pug
+
+mixin footer-mobile()
+  .footer-mobile
+    .footer-mobile__content
+      .footer-mobile__logo
+        +logo()
+
+      .footer-mobile__copyright
+        +copyright()
+
+      .footer-mobile__socials
+        +socials()
