@@ -1,0 +1,22 @@
+@use '@sass/variables'
+@use '@sass/mixins'
+@use '@sass/functions'
+
+.links
+  &__title
+    @include mixins.labelText
+
+  &__items
+    margin-top: 21px
+
+  &__item
+    margin-top: 20px
+
+    &:first-child
+      margin-top: 0
+
+  &__link
+    color: variables.$secondaryTextColor
+    font-size: functions.pxToRem(14px)
+    line-height: functions.pxToRem(17.1px)
+    text-decoration: none

@@ -1,0 +1,7 @@
+mixin links({ title, items })
+  .links
+    .links__title= title
+    ul.links__items
+      each item in items
+        li.links__item
+          a(href=item.href).links__link= item.text
