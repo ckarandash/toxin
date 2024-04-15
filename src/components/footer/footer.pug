@@ -1,0 +1,57 @@
+include @components/links/links.pug
+include @components/logo/logo.pug
+include @components/form-elements/text-field/text-field.pug
+include @components/socials/socials.pug
+include @components/copyright/copyright.pug
+
+mixin footer()
+  footer.footer
+    section.footer__content
+      .footer__intro
+        .footer__logo
+          +logo()
+        
+        .footer__intro-text Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+      .footer__links
+        .footer__links-column.footer__navigation-links
+          +links({
+            title: 'Навигация',
+            items: [
+              { text: 'О нас', href: '#' },
+              { text: 'Новости', href: '#' },
+              { text: 'Служба поддержки', href: '#' },
+              { text: 'Услуги', href: '#' },
+            ],
+          })
+        .footer__links-column.footer__about-links
+          +links({
+            title: 'О нас',
+            items: [
+              { text: 'О сервисе', href: '#' },
+              { text: 'Наша команда', href: '#' },
+              { text: 'Вакансии', href: '#' },
+              { text: 'Инвесторы', href: '#' },
+            ],
+          })
+        .footer__links-column.footer__support-links
+          +links({
+            title: 'Служба поддержки',
+            items: [
+              { text: 'Соглашения', href: '#' },
+              { text: 'Сообщества', href: '#' },
+              { text: 'Связь с нами', href: '#' },
+            ],
+          })
+      .footer__subscription
+        .footer__subscription-label подписка
+        .footer__subscription-text Получайте специальные предложения и новости сервиса
+        form.footer__subscription-form(action="#" method="POST")
+          .footer__subscription-field
+            +text-field({ placeholder: 'Email', hasArrow: true, })
+
+    section.footer__bottom
+      .footer__bottom-container
+        .footer__copyright
+          +copyright()
+        .footer__socials
+          +socials()
