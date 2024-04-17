@@ -18,7 +18,7 @@
     margin-right: 40px
 
   &__intro-text
-    margin-top: 20px
+    margin-top: 15px
     @include mixins.bodyText()
 
   &__links
@@ -39,20 +39,21 @@
     @include mixins.labelText()
 
   &__subscription-text
-    margin-top: 21px
+    margin-top: 18px
     @include mixins.bodyText()
 
-  &__subscription-field
-    margin-top: 20px
+  &__subscription-form
+    margin-top: 22.5px
 
   &__bottom
     border-top: 1px solid variables.$dark_25
+    box-shadow: 0 10px 20px variables.$dark_05
 
   &__bottom-container
     display: flex
     justify-content: space-between
     align-items: center
-    padding: 26px 15px
+    padding: 24px 15px 22px
     margin: 0 auto
     max-width: 1190px
 
@@ -60,6 +61,9 @@
     font-size: functions.pxToRem(14px)
     line-height: functions.pxToRem(17.1px)
     color: variables.$bodyTextColor
+
+  &__socials
+    margin-right: 1px
 
 @media (max-width: 1100px)
   .footer
