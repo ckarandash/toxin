@@ -1,0 +1,7 @@
+mixin nav-link({ text, href, isActive, isExpandable })
+  - const linkActiveClass = isActive ? 'nav-link__link_active' : '';
+  - const linkExpandableClass = isExpandable ? 'nav-link__link_expandable' : '';
+  - const linkModifierClasses = [linkActiveClass, linkExpandableClass];
+
+  .nav-link
+    a.nav-link__link(class=linkModifierClasses  href=href)= text

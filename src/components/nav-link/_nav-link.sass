@@ -1,0 +1,20 @@
+@use '@sass/variables'
+@use '@sass/functions'
+
+.nav-link
+  &__link
+    display: flex
+    color: variables.$secondaryTextColor
+    font-size: functions.pxToRem(14px)
+    line-height: functions.pxToRem(17.1px)
+    text-decoration: none
+
+    &_active
+      color: variables.$dark_75
+      font-weight: 700
+
+    &_expandable
+      &::after
+        content: 'expand_more'
+        font: 400 24px / 0.85 'Material Icons'
+        color: variables.$secondaryTextColor
