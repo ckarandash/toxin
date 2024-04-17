@@ -1,3 +1,9 @@
-mixin logo()
+mixin logo(options = {})
+  - const { linkTo } = options;
+
   .logo
-    img.logo__image(src=require("@assets/images/logo.svg"), alt="логотип")
+    if linkTo
+      a.logo__link(href=linkTo)
+        img.logo__image(src=require("@assets/images/logo.svg"), alt="логотип")
+    else
+      img.logo__image(src=require("@assets/images/logo.svg"), alt="логотип")
