@@ -1,7 +1,8 @@
-mixin nav-link({ text, href, isActive, isExpandable })
+mixin nav-link({ text, href, isActive, isExpandable, isReversed })
   - const linkActiveClass = isActive ? 'nav-link__link_active' : '';
   - const linkExpandableClass = isExpandable ? 'nav-link__link_expandable' : '';
-  - const linkModifierClasses = [linkActiveClass, linkExpandableClass];
+  - const linkReversedClass = isReversed ? 'nav-link__link_reversed' : '';
+  - const linkModifierClasses = [linkActiveClass, linkExpandableClass, linkReversedClass];
 
   .nav-link
     a.nav-link__link(class=linkModifierClasses  href=href)= text
