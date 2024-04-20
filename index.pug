@@ -23,6 +23,7 @@ include @components/cards/book-form/book-form.pug
 include @components/footer/footer.pug
 include @components/footer-mobile/footer-mobile.pug
 include @components/header/header.pug
+include @components/header-mobile/header-mobile.pug
 
 doctype html
 html(lang="en")
@@ -140,4 +141,5 @@ html(lang="en")
     //- +logo()
     //- +footer()
     //- +footer-mobile()
-    +header({ loggedIn: false, userName: 'Константин Константинопольский', userPageHref: '#' })
+    //- +header({ loggedIn: false, userName: 'Константин Константинопольский', userPageHref: '#' })
+    +header-mobile({ loggedIn: false, userName: 'dfjdfj', userPageHref: '#' })

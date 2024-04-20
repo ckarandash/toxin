@@ -1,0 +1,36 @@
+include @components/nav-link/nav-link.pug
+include @components/form-elements/btn/btn.pug
+
+mixin header-mobile({ userName, loggedIn, userPageHref })
+  .header-mobile
+    .header-mobile__wrapper
+      .header-mobile__content
+        .header-mobile__logo.js-header-mobile__logo
+          +logo()
+
+        .header-mobile__hamburger-button.js-header__hamburger-button
+          span
+          span
+          span
+      .header-mobile__dropdown
+        if !loggedIn
+          .header-mobile__buttons
+            .header-mobile__sign-in-btn
+              +btn({ label: 'Войти', theme: 'white', size: 'max' })
+            .header-mobile__sign-up-btn
+              +btn({ label: 'Зарегистрироваться', theme: 'purple', size: 'max' })
+        else
+          a(href=userPageHref).header-mobile__active-user
+            .header-mobile__username= userName
+        nav.header-mobile__navigation
+          ul.header-mobile__links
+            li.header-mobile__nav-link
+              +nav-link({ text: 'О нас', href: '#', isExpandable: false, isActive: true, isReversed: true })
+            li.header-mobile__nav-link
+              +nav-link({ text: 'Услуги', href: '#', isExpandable: true, isActive: false, isReversed: true })
+            li.header-mobile__nav-link
+              +nav-link({ text: 'Вакансии', href: '#', isExpandable: false, isActive: false, isReversed: true })
+            li.header-mobile__nav-link
+              +nav-link({ text: 'Новости', href: '#', isExpandable: false, isActive: false, isReversed: true })
+            li.header-mobile__nav-link
+              +nav-link({ text: 'Соглашения', href: '#', isExpandable: true, isActive: false, isReversed: true })
