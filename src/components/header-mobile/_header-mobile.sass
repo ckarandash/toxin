@@ -108,18 +108,8 @@
     color: variables.$secondaryTextColor
 
   &__active-user
-    position: relative
-    display: flex
+    display: inline-flex
     align-items: center
-    padding-left: 20px
+    align-self: center
+    padding: 10px 10px 10px 0
     text-decoration: none
-
-    &::before
-      content: ""
-      position: absolute
-      left: -0.5px
-      top: 50%
-      width: 1px
-      height: 71.5%
-      background-color: rgba(31, 32, 65, 0.1)
-      transform: translateY(-53%)
