@@ -1,84 +1,13 @@
-@use '@sass/variables'
-@use '@sass/mixins'  
-@use '@sass/functions'
-
 .footer
   width: 100%
-  background-color: variables.$mainBackgroundColor
 
-  &__content
-    display: flex
-    padding: 100px 15px
-    margin: 0 auto
-    max-width: 1190px
-    justify-content: space-between
+  &__footer-mobile
+    display: none
+  
+    @media (max-width: 767px)
+      display: block
 
-  &__intro
-    max-width: 260px
-    margin-right: 40px
-
-  &__intro-text
-    margin-top: 15px
-    @include mixins.bodyText()
-
-  &__links
-    display: flex
-    flex-grow: 1
-    justify-content: space-between
-    padding-top: 4px
-
-  &__links-column
-    flex-basis: 150px
-
-  &__subscription
-    max-width: 260px
-    padding-top: 4px
-    margin-left: 51px
-
-  &__subscription-label
-    @include mixins.labelText()
-
-  &__subscription-text
-    margin-top: 18px
-    @include mixins.bodyText()
-
-  &__subscription-form
-    margin-top: 22.5px
-
-  &__bottom
-    border-top: 1px solid variables.$dark_25
-    box-shadow: 0 10px 20px variables.$dark_05
-
-  &__bottom-container
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 24px 15px 22px
-    margin: 0 auto
-    max-width: 1190px
-
-  &__copyright
-    font-size: functions.pxToRem(14px)
-    line-height: functions.pxToRem(17.1px)
-    color: variables.$bodyTextColor
-
-  &__socials
-    margin-right: 1px
-
-@media (max-width: 1100px)
-  .footer
-    &__content
-      justify-content: space-around
-      flex-wrap: wrap
-      row-gap: 25px
-
-    &__links
-      justify-content: space-around
-      flex-basis: 100%
-      order: 1
-
-    &__intro
-      order: 2
-
-    &__subscription
-      order: 3
+  &__footer-desktop
+    @media (max-width: 767px)
+      display: none
+      
