@@ -1,32 +1,9 @@
-include @components/logo/logo.pug
-include @components/form-elements/btn/btn.pug
-include @components/nav-link/nav-link.pug
+include @components/header-desktop/header-desktop.pug
+include @components/header-mobile/header-mobile.pug
 
 mixin header({ loggedIn, userName, userPageHref })
-  header.header
-    .header__content
-      .header__logo
-        +logo()
-      .header__main
-        nav.header__navigation
-          ul.header__links
-            li.header__nav-link
-              +nav-link({ text: 'О нас', href: '#', isExpandable: false, isActive: true })
-            li.header__nav-link
-              +nav-link({ text: 'Услуги', href: '#', isExpandable: true, isActive: false })
-            li.header__nav-link
-              +nav-link({ text: 'Вакансии', href: '#', isExpandable: false, isActive: false })
-            li.header__nav-link
-              +nav-link({ text: 'Новости', href: '#', isExpandable: false, isActive: false })
-            li.header__nav-link
-              +nav-link({ text: 'Соглашения', href: '#', isExpandable: true, isActive: false })
-
-        if !loggedIn
-          .header__buttons
-            .header__sign-in-btn
-              +btn({ label: 'Войти', theme: 'white', size: 'max' })
-            .header__sign-up-btn
-              +btn({ label: 'Зарегистрироваться', theme: 'purple', size: 'max' })
-        else
-          a(href=userPageHref).header__active-user
-            .header__username= userName
+  .header
+    .header__header-desktop
+      +header-desktop({ loggedIn, userName, userPageHref })
+    .header__header-mobile
+      +header-mobile({ loggedIn, userName, userPageHref })
