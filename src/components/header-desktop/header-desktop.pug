@@ -1,0 +1,28 @@
+mixin header-desktop({ loggedIn, userName, userPageHref })
+  header.header-desktop
+    .header-desktop__content
+      .header-desktop__logo
+        +logo()
+      .header-desktop__main
+        nav.header-desktop__navigation
+          ul.header-desktop__links
+            li.header-desktop__nav-link
+              +nav-link({ text: 'О нас', href: '#', isExpandable: false, isActive: true })
+            li.header-desktop__nav-link
+              +nav-link({ text: 'Услуги', href: '#', isExpandable: true, isActive: false })
+            li.header-desktop__nav-link
+              +nav-link({ text: 'Вакансии', href: '#', isExpandable: false, isActive: false })
+            li.header-desktop__nav-link
+              +nav-link({ text: 'Новости', href: '#', isExpandable: false, isActive: false })
+            li.header-desktop__nav-link
+              +nav-link({ text: 'Соглашения', href: '#', isExpandable: true, isActive: false })
+
+        if !loggedIn
+          .header-desktop__buttons
+            .header-desktop__sign-in-btn
+              +btn({ label: 'Войти', theme: 'white', size: 'max' })
+            .header-desktop__sign-up-btn
+              +btn({ label: 'Зарегистрироваться', theme: 'purple', size: 'max' })
+        else
+          a(href=userPageHref).header-desktop__active-user
+            .header-desktop__username= userName
