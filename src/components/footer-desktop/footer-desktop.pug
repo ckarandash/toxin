@@ -1,0 +1,57 @@
+include @components/form-elements/text-field/text-field.pug
+include @components/logo/logo.pug
+include @components/links/links.pug
+include @components/copyright/copyright.pug
+include @components/socials/socials.pug
+
+mixin footer-desktop()
+  footer.footer-desktop
+      section.footer-desktop__content
+        .footer-desktop__intro
+          .footer-desktop__logo
+            +logo()
+          
+          .footer-desktop__intro-text Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        .footer-desktop__links
+          .footer-desktop__links-column.footer-desktop__navigation-links
+            +links({
+              title: 'Навигация',
+              items: [
+                { text: 'О нас', href: '#' },
+                { text: 'Новости', href: '#' },
+                { text: 'Служба поддержки', href: '#' },
+                { text: 'Услуги', href: '#' },
+              ],
+            })
+          .footer-desktop__links-column.footer-desktop__about-links
+            +links({
+              title: 'О нас',
+              items: [
+                { text: 'О сервисе', href: '#' },
+                { text: 'Наша команда', href: '#' },
+                { text: 'Вакансии', href: '#' },
+                { text: 'Инвесторы', href: '#' },
+              ],
+            })
+          .footer-desktop__links-column.footer-desktop__support-links
+            +links({
+              title: 'Служба поддержки',
+              items: [
+                { text: 'Соглашения', href: '#' },
+                { text: 'Сообщества', href: '#' },
+                { text: 'Связь с нами', href: '#' },
+              ],
+            })
+        .footer-desktop__subscription
+          .footer-desktop__subscription-label подписка
+          .footer-desktop__subscription-text Получайте специальные предложения и новости сервиса
+          form.footer-desktop__subscription-form(action="#" method="POST")
+            .footer-desktop__subscription-field
+              +text-field({ placeholder: 'Email', hasArrow: true, })
+
+      section.footer-desktop__bottom
+        .footer-desktop__bottom-container
+          .footer-desktop__copyright
+            +copyright()
+          .footer-desktop__socials
+            +socials()
