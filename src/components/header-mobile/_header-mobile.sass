@@ -69,6 +69,10 @@
     transition: max-height 0.3s ease, margin-top 0.3s ease
     overflow: hidden
 
+    @media (max-width: 400px)
+      flex-direction: column
+
+
     &_shown
       max-height: 1000px
       margin-top: 15px
@@ -76,6 +80,11 @@
   &__navigation
     display: flex
     align-items: center
+
+    @media (max-width: 400px)
+      align-self: flex-end
+      margin-top: 14px
+      margin-right: 4px
 
   &__links
     display: flex
@@ -99,6 +108,9 @@
     align-items: flex-start
     row-gap: 7px
 
+    @media (max-width: 400px)
+      align-items: flex-end
+
   &__sign-in-btn, &__sign-up-btn
     height: 34px
 
@@ -106,10 +118,18 @@
     font-size: functions.pxToRem(14px)
     line-height: functions.pxToRem(17.1px)
     color: variables.$secondaryTextColor
+    
+    @media (max-width: 400px)
+      text-align: right
 
   &__active-user
     display: inline-flex
     align-items: center
-    align-self: center
-    padding: 10px 10px 10px 0
+    align-self: flex-start
+    padding: 0 10px 10px 0
     text-decoration: none
+
+    @media (max-width: 400px)
+      align-self: flex-end
+      padding-right: 0
+      padding-left: 10px
