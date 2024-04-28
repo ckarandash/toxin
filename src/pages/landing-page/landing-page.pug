@@ -1,0 +1,15 @@
+include @components/header/header.pug
+include @components/footer/footer.pug
+include @components/cards/search-room-form/search-room-form.pug
+
+mixin landing-page()
+  .landing-page
+    .landing-page__header
+      +header({ loggedIn: false })
+    main.landing-page__main
+      .landing-page__content
+        .landing-page__search-form
+          +search-room-form({ headingTag: 'h1', periodDropdownsIds: { start: 'f', end: 'fd' } })
+      
+    .landing-page__footer
+      +footer()

@@ -25,6 +25,8 @@ include @components/footer-mobile/footer-mobile.pug
 include @components/header/header.pug
 include @components/header-mobile/header-mobile.pug
 
+include @components/../pages/landing-page/landing-page.pug
+
 doctype html
 html(lang="en")
   head
@@ -141,5 +143,7 @@ html(lang="en")
     //- +logo()
     //- +footer()
     //- +footer-mobile()
-    +header({ loggedIn: false, userName: 'Константин Константинопольский', userPageHref: '#' })
+    //- +header({ loggedIn: false, userName: 'Константин Константинопольский', userPageHref: '#' })
     //- +header-mobile({ loggedIn: true, userName: 'dfjdfj', userPageHref: '#' })
+
+    +landing-page()
