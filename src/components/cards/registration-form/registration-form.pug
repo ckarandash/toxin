@@ -5,30 +5,32 @@ mixin registration-form({ headingTag, formName, formAction="test" })
     #{headingTag}.registration-form__heading Регистрация аккаунта
     label.registration-form__user-fields
       .registration-form__name-field
-        +text-field({ name: 'user_name', placeholder: 'Имя' })
+        +text-field({ name: 'user_name', placeholder: 'Имя', required: true })
 
       .registration-form__surname-field
-        +text-field({ name: 'user_surname', placeholder: 'Фамилия' })
+        +text-field({ name: 'user_surname', placeholder: 'Фамилия', required: true })
 
       .registration-form__gender-fields
         .registration-form__male-field
-          +choice-field({ type: 'radio', name: 'gender', title: 'Мужчина', value: 'male' })
+          +choice-field({ type: 'radio', name: 'gender', title: 'Мужчина',
+            value: 'male', required: true })
 
         .registration-form__female-field
-          +choice-field({ type: 'radio', name: 'gender', title: 'Женщина', value: 'female' })
+          +choice-field({ type: 'radio', name: 'gender',
+            title: 'Женщина', value: 'female', required: true })
       
     label.registration-form__birthday
       .registration-form__birthday-label Дата рождения
       .registration-form__birthday-field
-        +text-field({ name: 'date_of_birth', isMasked: true })
+        +text-field({ name: 'date_of_birth', isMasked: true, required: true })
 
     label.registration-form__login-fields
       .registration-form__login-label Данные для входа в сервис
       .registration-form__email-field
-        +text-field({ name: 'email', placeholder: 'Email' })
+        +text-field({ name: 'email', placeholder: 'Email', required: true })
 
       .registration-form__password-field
-        +text-field({ name: 'password', placeholder: 'Пароль' })
+        +text-field({ name: 'password', placeholder: 'Пароль', required: true })
       
       .registration-form__subscription-field
         +choice-field({
@@ -36,6 +38,7 @@ mixin registration-form({ headingTag, formName, formAction="test" })
           name: 'subscription',
           title: 'Получать спецпредложения',
           value: 'subscribed',
+          required: true,
         })
 
     .registration-form__submit-button
